@@ -11,6 +11,7 @@ export const SignInLayout: React.FC<{ title?: string; children: React.ReactNode 
     await signInAnonymous()
     // TODO capture errors
   }
+
   return (
     <AuthLayout
       {...props}
@@ -21,7 +22,7 @@ export const SignInLayout: React.FC<{ title?: string; children: React.ReactNode 
             <Anchor component={Link} href="/sign-up">
               Sign up
             </Anchor>{' '}
-            or <Anchor onClick={signIn}>enter the app anonymously</Anchor>
+            {/* or <Anchor onClick={signIn}>enter the app anonymously</Anchor> */}
           </Text>
         </Center>
       }

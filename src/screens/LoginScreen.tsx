@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
         clientId: WEB3AUTH_CLIENT_ID,
         network: OPENLOGIN_NETWORK.TESTNET, // or other networks
         whiteLabel: {
-          name: "Vate",
+          name: Constants?.manifest?.name,
           logoLight: "https://web3auth.io/images/logo-light.png",
           logoDark: "https://web3auth.io/images/logo-dark.png",
           defaultLanguage: "en",
@@ -130,13 +130,13 @@ const LoginScreen = ({ navigation }) => {
       console.log('Address was: ', email)
       if (email.length < 80 && emailRegex.test(email)) {
         console.log(`Wallet Entry ${address} was valid, call or create user in DB: `);
-        toast.success('Loggining in with email')
+        toast.success('Logging in with email')
 
         const web3auth = new Web3Auth(WebBrowser, {
           clientId: WEB3AUTH_CLIENT_ID,
           network: OPENLOGIN_NETWORK.TESTNET, // or other networks
           whiteLabel: {
-            name: "Vate",
+            name: Constants?.manifest?.name,
             logoLight: "https://web3auth.io/images/logo-light.png",
             logoDark: "https://web3auth.io/images/logo-dark.png",
             defaultLanguage: "en",

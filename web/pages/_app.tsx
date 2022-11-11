@@ -8,7 +8,7 @@ import { NhostApolloProvider } from '@nhost/react-apollo'
 import { inspect } from '@xstate/inspect'
 
 import NavBar from '../components/NavBar'
-import { BACKEND_URL } from '../helpers'
+import { BACKEND_URL } from '../constants'
 
 import '../styles/globals.css'
 import { NextPage } from 'next/types'
