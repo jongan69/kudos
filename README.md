@@ -1,8 +1,8 @@
 # Kuods - Give to get
 
-Mobile: <https://expo.dev/@jongan69/kudos>
+Mobile: <https://exp.host/@jongan69/kudos>
 
-Web:
+Web: https://kudos-taupe.vercel.app/sign-in
 
 ## Usage
 
