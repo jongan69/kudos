@@ -13,7 +13,7 @@ import { BACKEND_URL } from '../helpers'
 import '../styles/globals.css'
 import { NextPage } from 'next/types'
 import { ReactElement } from 'react'
-
+import { title } from '../constants'
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement;
 };
@@ -34,7 +34,6 @@ if (devTools) {
 }
 
 const nhost = new NhostClient({ backendUrl: BACKEND_URL })
-const title = 'vate'
 function MyApp({ Component, pageProps }: MyAppProps) {
   // * Monorepo-related. See: https://stackoverflow.com/questions/71843247/react-nextjs-type-error-component-cannot-be-used-as-a-jsx-component
   // const AnyComponent = Component as any
