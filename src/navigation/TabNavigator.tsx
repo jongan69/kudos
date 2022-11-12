@@ -4,13 +4,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute, Route } from '@react-navigation/native';
 
 import HomeScreen from '../screens/HomeScreen';
-import CartScreen from '../screens/CartScreen';
-import FavoriteScreen from '../screens/FavoriteScreen';
-import NewsScreen from '../screens/NewsScreen';
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { useTheme } from '@react-navigation/native';
+import PaymentScreen from '../screens/PaymentScreen';
+import TodoScreen from '../screens/TodoScreen';
+import OffersScreen from '../screens/OffersScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -21,13 +20,13 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Favors"
         component={HomeScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="News"
-        component={NewsScreen}
+        name="Offers"
+        component={OffersScreen}
         options={({route}) => ({
           title: route.params?.title,
         })}
@@ -61,22 +60,22 @@ const TabNavigator = () => {
         })}
       />
       <Tab.Screen
-        name="Cart"
-        component={CartScreen}
+        name="Todo"
+        component={TodoScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Feather name="camera" color={color} size={size} />
+            <Feather name="list" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Favorite"
-        component={FavoriteScreen}
+        name="Payment"
+        component={PaymentScreen}
         options={{
           tabBarBadge: 3,
           tabBarBadgeStyle: {backgroundColor: colors.notification},
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="heart-outline" color={color} size={size} />
+            <Ionicons name="wallet" color={color} size={size} />
           ),
         }}
       />

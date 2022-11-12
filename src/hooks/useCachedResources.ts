@@ -13,7 +13,7 @@ export default function useCachedResources() {
       try {
         SplashScreen.preventAutoHideAsync();
         // reducerFunctions.CheckLoggedinSequence();
-        await require('../components/data.json')
+        // await require('../components/data.json')
 
         // Load fonts
         await Font.loadAsync({

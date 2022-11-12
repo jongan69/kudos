@@ -23,7 +23,8 @@ const linking: LinkingOptions<RootStackParamList | AuthStackParamList> = {
       Root: {
         screens: {
           Home: 'Home',
-          News: 'News',
+          Favors: 'Favors',
+          Offers: 'Offers',
           Profile: 'Profile',
           Messages: 'Messages',
           Settings: 'Settings',
