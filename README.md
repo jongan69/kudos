@@ -19,6 +19,20 @@ Mobile: <https://exp.host/@jongan69/kudos>
 
 Web: <https://kudos-taupe.vercel.app/sign-in>
 
+## Setup
+
+1. Create Nhost Account
+2. Create Web3Auth.io Account
+3. Copy into credentials .env and constant.js
+   Note: `WEB_API_ROUTES` would be the URL of the deployed nextjs app ie: vercel
+4. yarn install inside the root and web directories
+
+### For smart contract functionality
+
+   1. Receive Test Link from <https://faucets.chain.link/>
+   2. Create and Fund a VRF Subscription at <https://vrf.chain.link/>
+   3. Deploy the `contracts/Favors.sol` via <https://remix.ethereum.org/>
+
 ## Usage
 
 `yarn ios` - Run iOS App
@@ -41,7 +55,7 @@ in a new `.env`
 in `App.js`
   clientStorageType: "expo-secure-storage",
 
-To Run React + Node Express:
+To Run Nextjs App:
   `yarn web` in root directory
 
 ### To do
