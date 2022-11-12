@@ -1,5 +1,20 @@
 # Kuods - Give to get
 
+-----
+
+A full stack monorepo with
+
+- React Native
+- Nextjs
+- Web3Auth
+- Solidity
+- Chainlink VRF
+- Filecoin NFT.storage
+
+built under The Chainlink 2023 Hackathon
+
+-----
+
 Mobile: <https://exp.host/@jongan69/kudos>
 
 Web: <https://kudos-taupe.vercel.app/sign-in>
