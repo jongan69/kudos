@@ -17,7 +17,8 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Auth: NavigatorScreenParams<AuthNavParamList> | undefined;
   Home:undefined;
-  News: undefined;
+  Favors: undefined;
+  Offers: undefined;
   Profile: undefined;
   Messages: undefined;
   Settings: undefined;
@@ -41,8 +42,9 @@ export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = Nati
 
 export type RootTabParamList = {
   Home:undefined;
+  Favors: undefined;
+  Offers: undefined;
   Profile: undefined;
-  News: undefined;
   Messages: undefined;
   Settings: undefined;
 };

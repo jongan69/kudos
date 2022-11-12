@@ -12,7 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import BannerSlider from '../components/BannerSlider';
 import { useTheme } from '@react-navigation/native';
-
+import { WEB_API_ROUTES } from "@env"
 // import Layout from '../constants/Layout'
 // import ListItem from '../components/ListItem';
 // import Carousel from 'react-native-snap-carousel';
@@ -28,11 +28,11 @@ export default function HomeScreen({ navigation }) {
 
   // Get Trending Feed Data
   React.useEffect(() => {
-    fetch("http://localhost:3000/api")
+    fetch(WEB_API_ROUTES)
       .then(res => res.json())
       .then(data => setApi({ name: data.name }))
 
-  },[])
+  }, [])
 
 
   const renderBanner = ({ item, index }) => {
@@ -42,8 +42,8 @@ export default function HomeScreen({ navigation }) {
   const onSelectSwitch = value => {
     setGamesTab(value);
 
-    if(gamesTab == 2){
-      navigation.navigate('News')
+    if (gamesTab == 2) {
+      navigation.navigate('Favors')
     }
   };
 
@@ -56,59 +56,58 @@ export default function HomeScreen({ navigation }) {
             justifyContent: 'space-between',
             marginBottom: 20,
           }}>
-         {api && <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text  }}>
+
+          {api && <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text }}>
             Hello {api?.name}
           </Text>}
-         { gamesTab == 2 && (
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <ImageBackground
-              source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}}
-              style={{ width: 35, height: 35 }}
-              imageStyle={{ borderRadius: 25 }}
+
+          {gamesTab == 1 && (
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <ImageBackground
+                source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}
+                style={{ width: 35, height: 35 }}
+                imageStyle={{ borderRadius: 25 }}
+              />
+            </TouchableOpacity>
+          )}
+
+        </View>
+
+        {gamesTab == 2 && (
+          <View
+            style={{
+              flexDirection: 'row',
+              borderColor: '#C6C6C6',
+              borderWidth: 1,
+              borderRadius: 8,
+              paddingHorizontal: 10,
+              paddingVertical: 8,
+            }}>
+            <Feather
+              name="search"
+              size={20}
+              color="#C6C6C6"
+              style={{ marginRight: 5 }}
             />
-        </TouchableOpacity>
-         )}
-          
-        </View>
-
-        { gamesTab == 2 && (
-          <View
-          style={{
-            flexDirection: 'row',
-            borderColor: '#C6C6C6',
-            borderWidth: 1,
-            borderRadius: 8,
-            paddingHorizontal: 10,
-            paddingVertical: 8,
-          }}>
-          <Feather
-            name="search"
-            size={20}
-            color="#C6C6C6"
-            style={{ marginRight: 5 }}
-          />
-          <TextInput placeholder="Search" />
-        </View>
-        )}
-        
-        { gamesTab == 2 && (
-          <View
-          style={{
-            marginVertical: 15,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text }}>
-            Recent
-          </Text>
-          <TouchableOpacity onPress={() => { }}>
-            <Text style={{ color: colors.text }}>See all</Text>
-          </TouchableOpacity>
-        </View>
+            <TextInput placeholder="Search" />
+          </View>
         )}
 
-        
-       
+        {gamesTab == 1 && (
+          <View
+            style={{
+              marginVertical: 15,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text }}>
+              Recent
+            </Text>
+            <TouchableOpacity onPress={() => { }}>
+              <Text style={{ color: colors.text }}>See all</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {/* <Carousel
           ref={c => {
@@ -124,8 +123,8 @@ export default function HomeScreen({ navigation }) {
         <View style={{ marginVertical: 20 }}>
           <CustomSwitch
             selectionMode={1}
-            option1="Trending"
-            option2="Recent"
+            option1="Favors"
+            option2="Offers"
             onSelectSwitch={onSelectSwitch}
           />
         </View>

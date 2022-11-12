@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import * as WebBrowser from "expo-web-browser";
 // Theme 
@@ -47,7 +48,7 @@ const resolvedRedirectUrl =
 import { AppContext } from '../context/AppProvider';
 import { useNhostClient } from '@nhost/react';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
 
   const { setCurrentWalletAddress, currentWalletAddress, email, setEmail, key, setKey, userInfo, setUserInfo } = React.useContext(AppContext);
   const [address, setAddress] = useState<string>("");
