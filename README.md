@@ -36,6 +36,7 @@ To Run React + Node Express:
 3. Configure Smart Contract Function Calls via React Native App:
 
 Message Signing
+
 `
 const signMessage = async () => {
     try {
@@ -54,6 +55,7 @@ const signMessage = async () => {
 `
 
 Transaction Sending
+
 `
 const sendTransaction = async () => {
     try {
