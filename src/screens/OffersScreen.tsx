@@ -1,7 +1,9 @@
+import { useTheme } from '@react-navigation/native';
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const FavoriteScreen = () => {
+const OffersScreen = () => {
+  const { colors } = useTheme();
   return (
     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
       <Text>Favorite Screen</Text>
@@ -9,4 +11,4 @@ const FavoriteScreen = () => {
   )
 }
 
-export default FavoriteScreen
+export default OffersScreen

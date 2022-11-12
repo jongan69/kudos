@@ -12,7 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import BannerSlider from '../components/BannerSlider';
 import { useTheme } from '@react-navigation/native';
-
+import { WEB_API_ROUTES } from "@env"
 // import Layout from '../constants/Layout'
 // import ListItem from '../components/ListItem';
 // import Carousel from 'react-native-snap-carousel';
@@ -28,7 +28,7 @@ export default function HomeScreen({ navigation }) {
 
   // Get Trending Feed Data
   React.useEffect(() => {
-    fetch("http://localhost:3000/api")
+    fetch(WEB_API_ROUTES)
       .then(res => res.json())
       .then(data => setApi({ name: data.name }))
 
@@ -61,7 +61,7 @@ export default function HomeScreen({ navigation }) {
             Hello {api?.name}
           </Text>}
 
-          {gamesTab == 2 && (
+          {gamesTab == 1 && (
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
               <ImageBackground
                 source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}
@@ -93,7 +93,7 @@ export default function HomeScreen({ navigation }) {
           </View>
         )}
 
-        {/* {gamesTab == 2 && (
+        {gamesTab == 1 && (
           <View
             style={{
               marginVertical: 15,
@@ -107,7 +107,7 @@ export default function HomeScreen({ navigation }) {
               <Text style={{ color: colors.text }}>See all</Text>
             </TouchableOpacity>
           </View>
-        )} */}
+        )}
 
         {/* <Carousel
           ref={c => {

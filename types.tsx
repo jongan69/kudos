@@ -42,9 +42,9 @@ export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = Nati
 
 export type RootTabParamList = {
   Home:undefined;
-  Profile: undefined;
   Favors: undefined;
   Offers: undefined;
+  Profile: undefined;
   Messages: undefined;
   Settings: undefined;
 };
