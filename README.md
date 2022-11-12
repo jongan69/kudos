@@ -44,7 +44,6 @@ const signMessage = async () => {
       const ethersProvider = ethers.getDefaultProvider(providerUrl);
       const wallet = new ethers.Wallet(key, ethersProvider);
       const originalMessage = "YOUR_MESSAGE";
-
       // Sign the message
       const signedMessage = await wallet.signMessage(originalMessage);
       console.log(signedMessage)
@@ -62,12 +61,9 @@ const sendTransaction = async () => {
       setConsole("Sending transaction");
       const ethersProvider = ethers.getDefaultProvider(providerUrl);
       const wallet = new ethers.Wallet(key, ethersProvider);
-
       const destination = "0x40e1c367Eca34250cAF1bc8330E9EddfD403fC56";
-
       // Convert 1 ether to wei
       const amount = ethers.utils.parseEther("0.001");
-
       // Submit transaction to the blockchain
       const tx = await wallet.sendTransaction({
         to: destination,
@@ -75,9 +71,9 @@ const sendTransaction = async () => {
         maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
         maxFeePerGas: "6000000000000", // Max fee per gas
       });
-      uiConsole(tx);
+      console.log(tx)
     } catch (e) {
-      uiConsole(e);
+      console.log(e)
     }
   };
 `
