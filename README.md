@@ -17,6 +17,7 @@ built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzi
 # FAVORS CONTRACT ADDRESS (GOERLI): 0x175743e413D06400C663e80cDe716FC02B147623
 
 [Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/VRF/VRFD20.sol&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
+
 -----
 
 Mobile: <https://exp.host/@jongan69/kudos>
