@@ -11,8 +11,10 @@ A full stack monorepo with
 - Chainlink VRF
 - Filecoin NFT.storage
 
-built under The Chainlink 2023 Hackathon
+built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzion8>
 
+# KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0x7f7A1D2196A6817bBF075f32C55128876F4E79AA
+# FAVORS CONTRACT ADDRESS (GOERLI): 0x175743e413D06400C663e80cDe716FC02B147623
 -----
 
 Mobile: <https://exp.host/@jongan69/kudos>
@@ -21,8 +23,8 @@ Web: <https://kudos-taupe.vercel.app/sign-in>
 
 ## Setup
 
-1. Create Nhost Account
-2. Create Web3Auth.io Account
+1. Create Nhost Account at <https://app.nhost.io/>
+2. Create Web3Auth.io Account at <https://dashboard.web3auth.io/>
 3. Copy into credentials .env and constant.js
    Note: `WEB_API_ROUTES` would be the URL of the deployed nextjs app ie: vercel
 4. yarn install inside the root and web directories

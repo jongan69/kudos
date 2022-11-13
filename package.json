@@ -20,9 +20,11 @@
   },
   "dependencies": {
     "@backpackapp-io/react-native-toast": "^0.8.0",
+    "@chainlink/contracts": "^0.5.1",
     "@ethersproject/shims": "^5.7.0",
     "@expo/vector-icons": "^13.0.0",
     "@nhost/react": "^0.13.0",
+    "@openzeppelin/contracts": "^4.8.0",
     "@react-native-async-storage/async-storage": "^1.17.7",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/drawer": "^6.4.3",
