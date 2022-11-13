@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,43 +7,36 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+} from "react-native";
+import Feather from "react-native-vector-icons/Feather";
 
-import BannerSlider from '../components/BannerSlider';
-import { useTheme } from '@react-navigation/native';
-import { WEB_API_ROUTES } from "@env"
-// import Layout from '../constants/Layout'
-// import ListItem from '../components/ListItem';
-// import Carousel from 'react-native-snap-carousel';
-// const windowWidth = Layout.window.width;
-// import {freeGames, paidGames, sliderData} from '../model/data';
+import BannerSlider from "../components/BannerSlider";
+import { useTheme } from "@react-navigation/native";
+import { WEB_API_ROUTES } from "@env";
 
-import CustomSwitch from '../components/CustomSwitch';
+import CustomSwitch from "../components/CustomSwitch";
 
 export default function HomeScreen({ navigation }) {
-  const [gamesTab, setGamesTab] = useState(1);
-  const [api, setApi] = React.useState(null)
+  const [favorsTab, setfavorsTab] = useState(1);
+  const [api, setApi] = React.useState(null);
   const { colors } = useTheme();
 
   // Get Trending Feed Data
   React.useEffect(() => {
     fetch(WEB_API_ROUTES)
-      .then(res => res.json())
-      .then(data => setApi({ name: data.name }))
-
-  }, [])
-
+      .then((res) => res.json())
+      .then((data) => setApi({ name: data.name }));
+  }, []);
 
   const renderBanner = ({ item, index }) => {
     return <BannerSlider data={item} />;
   };
 
-  const onSelectSwitch = value => {
-    setGamesTab(value);
+  const onSelectSwitch = (value) => {
+    setfavorsTab(value);
 
-    if (gamesTab == 2) {
-      navigation.navigate('Favors')
+    if (favorsTab == 2) {
+      navigation.navigate("Favors");
     }
   };
 
@@ -52,37 +45,47 @@ export default function HomeScreen({ navigation }) {
       <ScrollView style={{ padding: 20 }}>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            flexDirection: "row",
+            justifyContent: "space-between",
             marginBottom: 20,
-          }}>
+          }}
+        >
+          {api && (
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: "Roboto-Medium",
+                color: colors.text,
+              }}
+            >
+              Hello {api?.name}
+            </Text>
+          )}
 
-          {api && <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text }}>
-            Hello {api?.name}
-          </Text>}
-
-          {gamesTab == 1 && (
+          {favorsTab == 1 && (
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
               <ImageBackground
-                source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}
-                style={{ width: 35, height: 35 }}
+                source={{
+                  uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
+                }}
+                style={{ paddingTop: 100, width: 150, height: 155 }}
                 imageStyle={{ borderRadius: 25 }}
               />
             </TouchableOpacity>
           )}
-
         </View>
 
-        {gamesTab == 2 && (
+        {favorsTab == 2 && (
           <View
             style={{
-              flexDirection: 'row',
-              borderColor: '#C6C6C6',
+              flexDirection: "row",
+              borderColor: "#C6C6C6",
               borderWidth: 1,
               borderRadius: 8,
               paddingHorizontal: 10,
               paddingVertical: 8,
-            }}>
+            }}
+          >
             <Feather
               name="search"
               size={20}
@@ -93,32 +96,28 @@ export default function HomeScreen({ navigation }) {
           </View>
         )}
 
-        {gamesTab == 1 && (
+        {favorsTab == 1 && (
           <View
             style={{
               marginVertical: 15,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium', color: colors.text }}>
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: "Roboto-Medium",
+                color: colors.text,
+              }}
+            >
               Recent
             </Text>
-            <TouchableOpacity onPress={() => { }}>
+            <TouchableOpacity onPress={() => {}}>
               <Text style={{ color: colors.text }}>See all</Text>
             </TouchableOpacity>
           </View>
         )}
-
-        {/* <Carousel
-          ref={c => {
-            this._carousel = c;
-          }}
-          data={sliderData}
-          renderItem={renderBanner}
-          sliderWidth={windowWidth - 40}
-          itemWidth={300}
-          loop={true}
-        /> */}
 
         <View style={{ marginVertical: 20 }}>
           <CustomSwitch
@@ -128,12 +127,8 @@ export default function HomeScreen({ navigation }) {
             onSelectSwitch={onSelectSwitch}
           />
         </View>
-
-        {/* { gamesTab == 1 && (
-          <WalletOverview/>
-        )} */}
-
-        {/* {gamesTab == 1 &&
+        {favorsTab == 1 ? <></> : <></>}
+        {/* {favorsTab == 1 &&
           freeGames.map(item => (
             <ListItem
               key={item.id}
@@ -149,7 +144,7 @@ export default function HomeScreen({ navigation }) {
               }
             />
           ))} */}
-        {/* {gamesTab == 2 &&
+        {/* {favorsTab == 2 &&
           paidGames.map(item => (
             <ListItem
               key={item.id}

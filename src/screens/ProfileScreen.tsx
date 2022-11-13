@@ -49,6 +49,7 @@ const ProfileScreen = () => {
           </Text>
           <Text style={styles.h2}>Email: {email}</Text>
           <Text style={styles.h2}>Joined 11/11/2022</Text>
+          <Text style={styles.h2}>Location: Maine</Text>
         </View>
         <TouchableOpacity onPress={() => setShowPrivateKey(!showPrivateKey)}>
           <View style={styles.button}>
@@ -108,7 +109,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "white",
   },
-  scrollViewCont: {},
   h1: {
     fontSize: 22,
     color: "white",
@@ -119,12 +119,14 @@ const styles = StyleSheet.create({
   },
   reviewContainer: {
     borderWidth: 5,
+    borderRadius: 8,
   },
   smallerTextBox: {
     width: 300,
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     padding: 5,
+    borderRadius: 8,
   },
 
   textBox: {
@@ -132,11 +134,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     padding: 5,
+    borderRadius: 8,
   },
   button: {
     marginBottom: 4,
     width: 190,
     backgroundColor: "#d75555",
+    borderRadius: 8,
   },
   container: {
     flex: 1,
@@ -149,8 +153,9 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     padding: 10,
     margin: 3,
+    borderRadius: 8,
   },
-  profileImage: { width: 150, height: 150, borderBottomRightRadius: 23 },
+  profileImage: { width: 150, height: 150, borderRadius: 8 },
   buttonText: {
     textAlign: "center",
     padding: 10,
