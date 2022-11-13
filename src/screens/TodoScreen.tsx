@@ -13,7 +13,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-const TodoScreen = () => {
+const TodoScreen = ({ navigation }) => {
   const { colors } = useTheme();
   return (
     <ScrollView>
@@ -26,12 +26,16 @@ const TodoScreen = () => {
         }}
       >
         <Text style={styles.h1}>James's Todo List</Text>
-        <Image
-          source={{
-            uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
-          }}
-          style={styles.profileImage}
-        />
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <View>
+            <Image
+              source={{
+                uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
+              }}
+              style={styles.profileImage}
+            />
+          </View>
+        </TouchableOpacity>
         <View style={styles.container2}>
           <View style={styles.sideBySideFlexStart}>
             <Text style={styles.text2}>Service: </Text>
