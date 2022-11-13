@@ -25,7 +25,6 @@ const TodoScreen = ({ navigation }) => {
           padding: 50,
         }}
       >
-        <Text style={styles.h1}>James's Todo List</Text>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <View>
             <Image
@@ -36,6 +35,8 @@ const TodoScreen = ({ navigation }) => {
             />
           </View>
         </TouchableOpacity>
+        <Text style={styles.h1}>James's Todo List</Text>
+
         <View style={styles.container2}>
           <View style={styles.sideBySideFlexStart}>
             <Text style={styles.text2}>Service: </Text>
@@ -133,7 +134,6 @@ const styles = StyleSheet.create({
   },
   smallerTextBox: {
     borderWidth: 1,
-    borderColor: "black",
     width: 300,
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -165,7 +165,6 @@ const styles = StyleSheet.create({
   container2: {
     backgroundColor: "rgba(156, 156, 156, 0.7)",
     borderWidth: 1,
-    borderColor: "black",
     padding: 10,
     margin: 3,
     borderRadius: 8,

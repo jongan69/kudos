@@ -86,13 +86,21 @@ export default function HomeScreen({ navigation }) {
 
               <View
                 style={{
-                  margin: 3,
+                  flexDirection: "row",
+                  borderColor: "#C6C6C6",
                   borderWidth: 1,
                   borderRadius: 8,
-                  width: 250,
+                  paddingHorizontal: 10,
+                  paddingVertical: 8,
+                  margin: 4,
                 }}
               >
-                <Feather name="search" size={0} color="#C6C6C6" />
+                <Feather
+                  name="search"
+                  size={20}
+                  color="#C6C6C6"
+                  style={{ marginRight: 5 }}
+                />
                 <TextInput placeholder="Search" />
               </View>
             </View>
@@ -109,7 +117,7 @@ export default function HomeScreen({ navigation }) {
           ></View>
         )}
 
-        <View style={{ marginVertical: 20 }}>
+        <View style={{ marginVertical: 0 }}>
           <CustomSwitch
             selectionMode={1}
             option1="Favors"
@@ -401,7 +409,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   profileImage: { width: 150, height: 150, borderRadius: 8 },
-  profileImage2: { width: 90, height: 90, borderRadius: 8 },
+  profileImage2: { margin: 4, width: 90, height: 90, borderRadius: 8 },
 
   buttonText: {
     textAlign: "center",
