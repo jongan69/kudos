@@ -43,43 +43,22 @@ const ProfileScreen = () => {
           style={{ width: 250, height: 50 }}
         />
         <View style={{ width: 300 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.sideBySideFlexStart}>
             <Text style={styles.h2}>Wallet Address:</Text>
             <Text style={styles.text}>
               {currentWalletAddress.slice(0, 5)}...
               {currentWalletAddress.slice(-4)}
             </Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-            }}
-          >
+          <View style={styles.sideBySideFlexStart}>
             <Text style={styles.h2}>Email:</Text>
             <Text style={styles.text}>{email}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-            }}
-          >
+          <View style={styles.sideBySideFlexStart}>
             <Text style={styles.h2}>Joined:</Text>
             <Text style={styles.text}>11/11/2022</Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-            }}
-          >
+          <View style={styles.sideBySideFlexStart}>
             <Text style={styles.h2}>Location:</Text>
             <Text style={styles.text}>Maine</Text>
           </View>
@@ -107,26 +86,42 @@ const ProfileScreen = () => {
         </View>
         <View>
           <View style={styles.container2}>
-            <Text style={styles.text}>Service: Hair Cut </Text>
-            <Text style={styles.text}>
-              Wallet Address {currentWalletAddress.slice(0, 5)}...
-              {currentWalletAddress.slice(-4)}
-            </Text>
-            <Text style={styles.text}>Aaron</Text>
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Service: </Text>
+              <Text style={styles.text}>Hair Cut</Text>
+            </View>
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Wallet Address: </Text>
+              <Text style={styles.text}>
+                {currentWalletAddress.slice(0, 5)}...
+                {currentWalletAddress.slice(-4)}
+              </Text>
+            </View>
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Reviewer: </Text>
+              <Text style={styles.text}>Aaron</Text>
+            </View>
             <Text style={styles.smallerTextBox}>
               By far the worst haircut I have ever received. I literally have a
               spot on the back of my head the size of a baseball.
             </Text>
           </View>
           <View style={styles.container2}>
-            <Text style={styles.text}>Service: Chef </Text>
-
-            <Text style={styles.text}>
-              Wallet Address {currentWalletAddress.slice(0, 5)}...
-              {currentWalletAddress.slice(-4)}
-            </Text>
-            <Text style={styles.text}>Lisa</Text>
-
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Service: </Text>
+              <Text style={styles.text}>Hair Cut</Text>
+            </View>
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Wallet Address: </Text>
+              <Text style={styles.text}>
+                {currentWalletAddress.slice(0, 5)}...
+                {currentWalletAddress.slice(-4)}
+              </Text>
+            </View>
+            <View style={styles.sideBySideFlexStart}>
+              <Text style={styles.text2}>Reviewer: </Text>
+              <Text style={styles.text}>Lisa</Text>
+            </View>
             <Text style={styles.smallerTextBox}>
               James was very professional and the food was delicious. Everything
               was very thoughtful and presented beautifully.
@@ -142,6 +137,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "black",
   },
+  text2: {
+    fontSize: 18,
+    color: "white",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 1,
+  },
   h1: {
     fontSize: 25,
     color: "black",
@@ -156,10 +158,15 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 0 },
     textShadowRadius: 10,
   },
-  sideBySide: {
+  sideBySideCenter: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+  },
+  sideBySideFlexStart: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
   reviewContainer: {
     borderWidth: 5,
@@ -196,7 +203,7 @@ const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "rgba(156, 156, 156, 1)",
+    backgroundColor: "rgba(156, 156, 156, 0.7)",
     borderWidth: 1,
     borderColor: "black",
     padding: 10,

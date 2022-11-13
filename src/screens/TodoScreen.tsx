@@ -33,52 +33,53 @@ const TodoScreen = () => {
           style={styles.profileImage}
         />
         <View style={styles.container2}>
-          <Text style={styles.text}>Service: Drive </Text>
-          <Text style={styles.text}>Time: 8Hr 44min </Text>
-          <Text style={styles.h2}>Wallet Address0x4et...9q8s</Text>
-          <Text style={styles.h2}>Requester: Chad</Text>
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Service: </Text>
+            <Text style={styles.text}> Drive</Text>
+          </View>
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Wallet Address: </Text>
+            <Text style={styles.text}>0xmrv...z083</Text>
+          </View>
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Requester: </Text>
+            <Text style={styles.text}> Chad</Text>
+          </View>
           <Text style={styles.smallerTextBox}>
-            <Text style={styles.details}>Date: 13/01/2023 </Text>
-            {"\n"}
             Drive U-haul to 6129 Marsden St, Philadelphia, PA 19135.
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.sideBySideCenter}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>Mark Completed</Text>
             </View>
             <View style={styles.button}>
-              <Text style={styles.buttonText}>Withdraw Offer</Text>
+              <Text style={styles.buttonText}>Withdraw {"\n"} Offer</Text>
             </View>
           </View>
         </View>
         <View style={styles.container2}>
-          <Text style={styles.text}>Service: Chaperone </Text>
-          <Text style={styles.text}>Time: 8Hr 44min </Text>
-          <Text style={styles.h2}>Wallet Address0xmrv...z083</Text>
-          <Text style={styles.h2}>Requester: Marshwood Middle School</Text>
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Service: </Text>
+            <Text style={styles.text}> Chaperone</Text>
+          </View>
+
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Wallet Address: </Text>
+            <Text style={styles.text}>0xmrv...z083</Text>
+          </View>
+          <View style={styles.sideBySideFlexStart}>
+            <Text style={styles.text2}>Requester: </Text>
+            <Text style={styles.text}> Marshwood High School</Text>
+          </View>
           <Text style={styles.smallerTextBox}>
-            <Text style={styles.details}>Date: 17/01/2023 </Text>
-            {"\n"}
             Help chaperone 7th Grade field trip to the Acadian Village.
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.sideBySideCenter}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>Mark Completed</Text>
             </View>
             <View style={styles.button}>
-              <Text style={styles.buttonText}>Withdraw offer</Text>
+              <Text style={styles.buttonText}>Withdraw {"\n"} Offer</Text>
             </View>
           </View>
         </View>
@@ -89,24 +90,46 @@ const TodoScreen = () => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
+    color: "black",
+  },
+  text2: {
+    fontSize: 18,
     color: "white",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 1,
   },
-  details: {
-    color: "rgba(28, 56, 155, 1)",
-  },
-  scrollViewCont: {},
   h1: {
-    fontSize: 22,
-    color: "white",
+    fontSize: 25,
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
   },
   h2: {
     fontSize: 20,
-    color: "white",
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
+  },
+  sideBySideCenter: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sideBySideFlexStart: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
   reviewContainer: {
     borderWidth: 5,
+    borderRadius: 8,
   },
   smallerTextBox: {
+    borderWidth: 1,
+    borderColor: "black",
     width: 300,
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -119,10 +142,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     padding: 5,
+    borderRadius: 8,
   },
   button: {
     margin: 4,
     width: 120,
+    height: 60,
     backgroundColor: "#d75555",
     borderRadius: 8,
   },
@@ -134,7 +159,9 @@ const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "rgba(156, 156, 156, 1)",
+    backgroundColor: "rgba(156, 156, 156, 0.7)",
+    borderWidth: 1,
+    borderColor: "black",
     padding: 10,
     margin: 3,
     borderRadius: 8,
@@ -143,9 +170,8 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     padding: 10,
-    height: 40,
     color: "white",
-    fontSize: 13,
+    fontSize: 14,
   },
 });
 

@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
@@ -130,16 +131,82 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         {favorsTab == 1 ? (
-          <View style={styles.container2}>
-            <Text style={styles.text}>Service: Chef </Text>
+          <ScrollView>
+            <View>
+              <View style={styles.container2}>
+                <View style={styles.sideBySideFlexStart}>
+                  <Image
+                    source={{
+                      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtZYi9Q7zPvN-N8b0v1ZIPR0GoqU1ev2yGbw&usqp=CAU",
+                    }}
+                    style={styles.profileImage2}
+                  />
+                  <View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Service: </Text>
+                      <Text style={styles.text}> Decorating</Text>
+                    </View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Wallet Address: </Text>
+                      <Text style={styles.text}>0xmrv...z083</Text>
+                    </View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Requester: </Text>
+                      <Text style={styles.text}> Agnes</Text>
+                    </View>
+                  </View>
+                </View>
 
-            <Text style={styles.text}>Wallet Address</Text>
-            <Text style={styles.text}>Katherine Taylor</Text>
+                <Text style={styles.smallerTextBox}>
+                  Can shelp me decorate my yard for Christmas?
+                </Text>
+                <View style={styles.sideBySideCenter}>
+                  <View style={styles.button2}>
+                    <Text style={styles.buttonText}>Volunteer</Text>
+                  </View>
+                  <View style={styles.button2}>
+                    <Text style={styles.buttonText}>Comment</Text>
+                  </View>
+                </View>
+              </View>
+              <View style={styles.container2}>
+                <View style={styles.sideBySideFlexStart}>
+                  <Image
+                    source={{
+                      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzNFpIvdjmfWTooLsmpGiyr5iL4rd1h4VOsQ&usqp=CAU",
+                    }}
+                    style={styles.profileImage2}
+                  />
+                  <View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Service: </Text>
+                      <Text style={styles.text}> Assemble Furniture</Text>
+                    </View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Wallet Address: </Text>
+                      <Text style={styles.text}>0x8mr9...1k8q</Text>
+                    </View>
+                    <View style={styles.sideBySideFlexStart}>
+                      <Text style={styles.text2}>Requester: </Text>
+                      <Text style={styles.text}>Tegan</Text>
+                    </View>
+                  </View>
+                </View>
 
-            <Text style={styles.smallerTextBox}>
-              Can someone take care of my cat for 5 days?
-            </Text>
-          </View>
+                <Text style={styles.smallerTextBox}>
+                  Looking for someone to help me assemble furniture.{" "}
+                </Text>
+                <View style={styles.sideBySideCenter}>
+                  <View style={styles.button2}>
+                    <Text style={styles.buttonText}>Volunteer</Text>
+                  </View>
+                  <View style={styles.button2}>
+                    <Text style={styles.buttonText}>Comment</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </ScrollView>
         ) : (
           <></>
         )}
@@ -185,13 +252,36 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "black",
   },
+  text2: {
+    fontSize: 18,
+    color: "white",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 1,
+  },
   h1: {
-    fontSize: 22,
-    color: "gray",
+    fontSize: 25,
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
   },
   h2: {
     fontSize: 20,
-    color: "rgba(35, 60, 149, 1)",
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
+  },
+  sideBySideCenter: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sideBySideFlexStart: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
   reviewContainer: {
     borderWidth: 5,
@@ -215,8 +305,16 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   button: {
-    marginBottom: 4,
-    width: 190,
+    margin: 4,
+    width: 120,
+    height: 60,
+    backgroundColor: "#d75555",
+    borderRadius: 8,
+  },
+  button2: {
+    margin: 4,
+    width: 120,
+    height: 40,
     backgroundColor: "#d75555",
     borderRadius: 8,
   },
@@ -228,12 +326,16 @@ const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "rgba(156, 156, 156, 1)",
+    backgroundColor: "rgba(156, 156, 156, 0.7)",
+    borderWidth: 1,
+    borderColor: "black",
     padding: 10,
     margin: 3,
     borderRadius: 8,
   },
   profileImage: { width: 150, height: 150, borderRadius: 8 },
+  profileImage2: { width: 90, height: 90, borderRadius: 8 },
+
   buttonText: {
     textAlign: "center",
     padding: 10,
