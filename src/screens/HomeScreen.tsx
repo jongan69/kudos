@@ -96,8 +96,7 @@ const TodoScreen = ({ navigation }) => {
               service="Decorating"
               walletAddress="0xpr3...eb73"
               name="Chad"
-              message="Can someone help me decorate my yard for Christmas?
-              "
+              message="Can someone help me decorate my yard for Christmas?"
             />
           ) : (
             <Offer
