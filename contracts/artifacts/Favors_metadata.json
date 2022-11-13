@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.6+commit.11564f7e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -253,9 +253,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts\\Favors.sol": "Favors"
+			"contracts/Favors.sol": "Favors"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -267,7 +267,15 @@
 		"remappings": []
 	},
 	"sources": {
-		"@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol": {
+		"contracts/Favors.sol": {
+			"keccak256": "0xb670254faebf9895bde9dcdf91616d33811883fe42215770d29f58e63af83815",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a2e1ee29bfd20535c0769ea19fb61190620318177b44c4fafd6292155895d91",
+				"dweb:/ipfs/QmQY2ZCUdtxGDZEPH9N1ZCpH3j5Xp8pqAYyQfFdoLtYMag"
+			]
+		},
+		"node_modules/@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol": {
 			"keccak256": "0x3d709a5e0f1f9b8841172b10ba8af785dd51a13eda9fc395723a706e51329904",
 			"license": "MIT",
 			"urls": [
@@ -275,20 +283,12 @@
 				"dweb:/ipfs/QmZWJ25Yr1sUSAsfJRKvTMDmGkmy63hHhB495CUL1bpNz4"
 			]
 		},
-		"@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+		"node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
 			"keccak256": "0x54cdc97717cbae1a51a5500c8ee4875ebf056c95b54d2155a9544a79cb4f4494",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://4bd670a55aacc0ab372835cd7e21b487f9fb69d8c6375234b68862a58f3b1153",
 				"dweb:/ipfs/QmRMdB9TFLgG1LXg9VSTWbZZ1yf3uY1RY3pPkoMN23JfZk"
-			]
-		},
-		"contracts\\Favors.sol": {
-			"keccak256": "0x284b6df61dc7f09bb763649de2b33ae3db25446203ff0b6ee9f6ca0e807aa35a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://11c319dd5737df6937f529388516124eabd80dc275a3c660d21e0938a8031e72",
-				"dweb:/ipfs/QmU1xP47vUxnuf3TkQgY1DnMXEJRNc48kDbLJq1YFFFdxQ"
 			]
 		}
 	},

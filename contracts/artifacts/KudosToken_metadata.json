@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.6+commit.11564f7e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -334,9 +334,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts\\KudosToken.sol": "KudosToken"
+			"contracts/KudosToken.sol": "KudosToken"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -348,7 +348,15 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+		"contracts/KudosToken.sol": {
+			"keccak256": "0x5edad1be5e58341f1ac6c026afcae941e3c0ce5c71a3616e923599d0ef48e1a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cd224cde8c8b8644788134aac0be5ef5fa433d0f8f6a485ffe7183750704cde8",
+				"dweb:/ipfs/QmSChCFboMtZH4SuxpMsdwJruwHw2Dwo9cbYKcKYEjY1Zi"
+			]
+		},
+		"node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
 			"keccak256": "0x4ffc0547c02ad22925310c585c0f166f8759e2648a09e9b489100c42f15dd98d",
 			"license": "MIT",
 			"urls": [
@@ -356,7 +364,7 @@
 				"dweb:/ipfs/QmaQG1fwfgUt5E9nu2cccFiV47B2V78MM1tCy1qB7n4MsH"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+		"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
 			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
 			"license": "MIT",
 			"urls": [
@@ -364,7 +372,7 @@
 				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+		"node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
 			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
 			"license": "MIT",
 			"urls": [
@@ -372,20 +380,12 @@
 				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
 			]
 		},
-		"@openzeppelin/contracts/utils/Context.sol": {
+		"node_modules/@openzeppelin/contracts/utils/Context.sol": {
 			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-			]
-		},
-		"contracts\\KudosToken.sol": {
-			"keccak256": "0xcac2c81f2df60e5363f206f5ba6e990b7ddbbb31da8e21d3364a463ebca4c806",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://90e9eecd8748ee512502b80e0f680c5eed72a49355eec3b5abf1f74320588198",
-				"dweb:/ipfs/QmaJxmbt1uHM3DccjoLCouRQ21q3kaVoHEDub8XaAgimPy"
 			]
 		}
 	},
