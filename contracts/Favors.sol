@@ -59,6 +59,7 @@ contract Favors is VRFConsumerBaseV2 {
 
      function storePlayer(address roller) public returns(address[] memory){  
         playerAddresses.push(roller);
+        return playerAddresses;
     }  
 
     function playerCount() public view returns (uint256) {

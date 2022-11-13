@@ -14,7 +14,7 @@ A full stack monorepo with
 built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzion8>
 
 # KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0x7f7A1D2196A6817bBF075f32C55128876F4E79AA
-# FAVORS CONTRACT ADDRESS (GOERLI): 0x175743e413D06400C663e80cDe716FC02B147623
+# FAVORS CONTRACT ADDRESS (GOERLI): 0x32a37ff2979159de195172b411a50d08bc30f9f3
 
 [Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/VRF/VRFD20.sol&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
 
