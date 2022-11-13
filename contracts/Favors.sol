@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.6;
 
 import '@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol';
 import '@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol';
@@ -14,17 +14,11 @@ import '@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol';
  * Find information on LINK Token Contracts and get the latest ETH and LINK faucets here: https://docs.chain.link/docs/link-token-contracts/
  */
 
-//  interface ERC20 {
-//     function transferFrom(
-//         address _from,
-//         address _to,
-//         uint256 _value
-//     ) internal {}
-// }
 
 contract Favors is VRFConsumerBaseV2 {
     // Contract Address of Kudos Token
     // ERC20 erc20Contract = ERC20("0x7f7A1D2196A6817bBF075f32C55128876F4E79AA");
+
     uint256 private constant ROLL_IN_PROGRESS = 42;
     VRFCoordinatorV2Interface COORDINATOR;
     // Your subscription ID.
@@ -33,15 +27,11 @@ contract Favors is VRFConsumerBaseV2 {
     // see https://docs.chain.link/docs/vrf-contracts/#configurations
     address vrfCoordinator = 0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D;
     // The gas lane to use, which specifies the maximum gas price to bump to.
-    // For a list of available gas lanes on each network,
-    // see https://docs.chain.link/docs/vrf-contracts/#configurations
+    // For a list of available gas lanes on each network, see https://docs.chain.link/docs/vrf-contracts/#configurations
     bytes32 s_keyHash = 0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15;
-    // Depends on the number of requested values that you want sent to the
-    // fulfillRandomWords() function. Storing each word costs about 20,000 gas,
-    // so 40,000 is a safe default for this example contract. Test and adjust
-    // this limit based on the network that you select, the size of the request,
-    // and the processing of the callback request in the fulfillRandomWords()
-    // function.
+    // Depends on the number of requested values that you want sent to the fulfillRandomWords() function. 
+    // Storing each word costs about 20,000 gas,
+    // Test and adjust this limit based on the network that you select, the size of the request, etc
     uint32 callbackGasLimit = 40000;
     // The default is 3, but you can set this higher.
     uint16 requestConfirmations = 3;
@@ -53,15 +43,13 @@ contract Favors is VRFConsumerBaseV2 {
     // Array of players to prevent double mint
     address[] public playerAddresses; // store as an array
 
-    // function storePlayer(address[] memory _playerAddress) public {
-    //     playerAddresses = _playerAddress;
-    // }
-
+    // Function for storing address in playerAddresses Array
      function storePlayer(address roller) public returns(address[] memory){  
         playerAddresses.push(roller);
         return playerAddresses;
     }  
 
+    // Function for getting player count (length of array)
     function playerCount() public view returns (uint256) {
         return playerAddresses.length;
     }
@@ -155,15 +143,17 @@ contract Favors is VRFConsumerBaseV2 {
         require(s_results[player] != ROLL_IN_PROGRESS, 'Roll in progress');
         return getBonus(s_results[player]);
     }
+
     /**
-     * @notice get random bonus from the id
+     * @notice get a random one time bonus from the id
      * @param id uint256
      * @return bonus int
      */
     function getBonus(uint256 id) public pure returns (uint8) {
         // Get random value id location in bonus array
         uint8[20] memory bonus = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-        // Mint that many kudos token to player
+        
+        // Mint that many kudos token to players address using the referenced KudosToken Contract
         // erc20Contract.transferFrom(msg.sender, price);
         return bonus[id - 1];
     }

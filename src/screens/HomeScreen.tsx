@@ -92,7 +92,7 @@ export default function HomeScreen({ navigation }) {
                   width: 250,
                 }}
               >
-                <Feather name="search" size={0} color="#C6C6C6" />
+                <Feather name="search" size={0} color={colors.border} />
                 <TextInput placeholder="Search" />
               </View>
             </View>
@@ -230,7 +230,7 @@ export default function HomeScreen({ navigation }) {
                 </Text>
                 <View style={styles.sideBySideCenter}>
                   <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Volunteer</Text>
+                    <Text style={styles.buttonText}>Accept</Text>
                   </View>
                   <View style={styles.button2}>
                     <Text style={styles.buttonText}>Comment</Text>
@@ -265,7 +265,7 @@ export default function HomeScreen({ navigation }) {
                 </Text>
                 <View style={styles.sideBySideCenter}>
                   <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Volunteer</Text>
+                    <Text style={styles.buttonText}>Accept</Text>
                   </View>
                   <View style={styles.button2}>
                     <Text style={styles.buttonText}>Comment</Text>
