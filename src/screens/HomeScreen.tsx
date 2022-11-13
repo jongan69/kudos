@@ -158,7 +158,7 @@ export default function HomeScreen({ navigation }) {
                 </View>
 
                 <Text style={styles.smallerTextBox}>
-                  Can shelp me decorate my yard for Christmas?
+                  Can someone help me decorate my yard for Christmas?
                 </Text>
                 <View style={styles.sideBySideCenter}>
                   <View style={styles.button2}>
