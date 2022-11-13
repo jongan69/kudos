@@ -43,13 +43,46 @@ const ProfileScreen = () => {
           style={{ width: 250, height: 50 }}
         />
         <View style={{ width: 300 }}>
-          <Text style={styles.h2}>
-            Wallet Address: {currentWalletAddress.slice(0, 5)}...
-            {currentWalletAddress.slice(-4)}
-          </Text>
-          <Text style={styles.h2}>Email: {email}</Text>
-          <Text style={styles.h2}>Joined 11/11/2022</Text>
-          <Text style={styles.h2}>Location: Maine</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Text style={styles.h2}>Wallet Address:</Text>
+            <Text style={styles.text}>
+              {currentWalletAddress.slice(0, 5)}...
+              {currentWalletAddress.slice(-4)}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Text style={styles.h2}>Email:</Text>
+            <Text style={styles.text}>{email}</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Text style={styles.h2}>Joined:</Text>
+            <Text style={styles.text}>11/11/2022</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Text style={styles.h2}>Location:</Text>
+            <Text style={styles.text}>Maine</Text>
+          </View>
         </View>
         <TouchableOpacity onPress={() => setShowPrivateKey(!showPrivateKey)}>
           <View style={styles.button}>
@@ -75,24 +108,24 @@ const ProfileScreen = () => {
         <View>
           <View style={styles.container2}>
             <Text style={styles.text}>Service: Hair Cut </Text>
-            <Text style={styles.h2}>
+            <Text style={styles.text}>
               Wallet Address {currentWalletAddress.slice(0, 5)}...
               {currentWalletAddress.slice(-4)}
             </Text>
-            <Text style={styles.h2}>Aaron</Text>
+            <Text style={styles.text}>Aaron</Text>
             <Text style={styles.smallerTextBox}>
               By far the worst haircut I have ever received. I literally have a
-              spot on the back side of my head the size of a baseball.
+              spot on the back of my head the size of a baseball.
             </Text>
           </View>
           <View style={styles.container2}>
             <Text style={styles.text}>Service: Chef </Text>
 
-            <Text style={styles.h2}>
+            <Text style={styles.text}>
               Wallet Address {currentWalletAddress.slice(0, 5)}...
               {currentWalletAddress.slice(-4)}
             </Text>
-            <Text style={styles.h2}>Lisa</Text>
+            <Text style={styles.text}>Lisa</Text>
 
             <Text style={styles.smallerTextBox}>
               James was very professional and the food was delicious. Everything
@@ -107,21 +140,34 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    color: "white",
+    color: "black",
   },
   h1: {
-    fontSize: 22,
-    color: "white",
+    fontSize: 25,
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
   },
   h2: {
     fontSize: 20,
-    color: "white",
+    color: "black",
+    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
+  },
+  sideBySide: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   reviewContainer: {
     borderWidth: 5,
     borderRadius: 8,
   },
   smallerTextBox: {
+    borderWidth: 1,
+    borderColor: "black",
     width: 300,
     fontSize: 18,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -150,7 +196,9 @@ const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "gray",
+    backgroundColor: "rgba(156, 156, 156, 1)",
+    borderWidth: 1,
+    borderColor: "black",
     padding: 10,
     margin: 3,
     borderRadius: 8,
@@ -163,4 +211,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
 export default ProfileScreen;

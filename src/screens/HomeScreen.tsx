@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
@@ -55,10 +56,10 @@ export default function HomeScreen({ navigation }) {
               style={{
                 fontSize: 18,
                 fontFamily: "Roboto-Medium",
-                color: colors.text,
+                color: "orange",
               }}
             >
-              Hello {api?.name}
+              Hello
             </Text>
           )}
 
@@ -127,7 +128,21 @@ export default function HomeScreen({ navigation }) {
             onSelectSwitch={onSelectSwitch}
           />
         </View>
-        {favorsTab == 1 ? <></> : <></>}
+
+        {favorsTab == 1 ? (
+          <View style={styles.container2}>
+            <Text style={styles.text}>Service: Chef </Text>
+
+            <Text style={styles.text}>Wallet Address</Text>
+            <Text style={styles.text}>Katherine Taylor</Text>
+
+            <Text style={styles.smallerTextBox}>
+              Can someone take care of my cat for 5 days?
+            </Text>
+          </View>
+        ) : (
+          <></>
+        )}
         {/* {favorsTab == 1 &&
           freeGames.map(item => (
             <ListItem
@@ -165,3 +180,64 @@ export default function HomeScreen({ navigation }) {
     </SafeAreaView>
   );
 }
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 18,
+    color: "black",
+  },
+  h1: {
+    fontSize: 22,
+    color: "gray",
+  },
+  h2: {
+    fontSize: 20,
+    color: "rgba(35, 60, 149, 1)",
+  },
+  reviewContainer: {
+    borderWidth: 5,
+    borderRadius: 8,
+  },
+  smallerTextBox: {
+    borderWidth: 1,
+    borderColor: "black",
+    width: 300,
+    fontSize: 18,
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    padding: 5,
+    borderRadius: 8,
+  },
+
+  textBox: {
+    width: 300,
+    fontSize: 18,
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    padding: 5,
+    borderRadius: 8,
+  },
+  button: {
+    marginBottom: 4,
+    width: 190,
+    backgroundColor: "#d75555",
+    borderRadius: 8,
+  },
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "white",
+    paddingTop: 10,
+    margin: 1,
+  },
+  container2: {
+    backgroundColor: "rgba(156, 156, 156, 1)",
+    padding: 10,
+    margin: 3,
+    borderRadius: 8,
+  },
+  profileImage: { width: 150, height: 150, borderRadius: 8 },
+  buttonText: {
+    textAlign: "center",
+    padding: 10,
+    color: "white",
+    fontSize: 14,
+  },
+});

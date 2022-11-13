@@ -1,6 +1,5 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
-import { AppContext } from "../context/AppProvider";
 import {
   ScrollView,
   Platform,
@@ -61,7 +60,7 @@ const TodoScreen = () => {
         <View style={styles.container2}>
           <Text style={styles.text}>Service: Chaperone </Text>
           <Text style={styles.text}>Time: 8Hr 44min </Text>
-          <Text style={styles.h2}>Wallet Address0x4et...9q8s</Text>
+          <Text style={styles.h2}>Wallet Address0xmrv...z083</Text>
           <Text style={styles.h2}>Requester: Marshwood Middle School</Text>
           <Text style={styles.smallerTextBox}>
             <Text style={styles.details}>Date: 17/01/2023 </Text>
@@ -135,12 +134,12 @@ const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "gray",
+    backgroundColor: "rgba(156, 156, 156, 1)",
     padding: 10,
     margin: 3,
     borderRadius: 8,
   },
-  profileImage: { width: 150, height: 150 },
+  profileImage: { width: 150, height: 150, borderRadius: 8 },
   buttonText: {
     textAlign: "center",
     padding: 10,
