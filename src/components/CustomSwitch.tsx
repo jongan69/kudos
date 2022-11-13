@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { useTheme } from "@react-navigation/native";
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import { useTheme } from '@react-navigation/native';
+
 
 export default function CustomSwitch({
   selectionMode,
@@ -10,7 +11,7 @@ export default function CustomSwitch({
 }) {
   const [getSelectionMode, setSelectionMode] = useState(selectionMode);
   const { colors } = useTheme();
-  const updateSwitchData = (value) => {
+  const updateSwitchData = value => {
     setSelectionMode(value);
     onSelectSwitch(value);
   };
@@ -19,33 +20,29 @@ export default function CustomSwitch({
     <View
       style={{
         height: 44,
-        width: 350,
+        width: '100%',
         backgroundColor: colors?.secondary,
         borderRadius: 10,
-        borderColor: "#000",
-        flexDirection: "row",
-        justifyContent: "center",
-      }}
-    >
+        borderColor: '#000',
+        flexDirection: 'row',
+        justifyContent: 'center',
+      }}>
       <TouchableOpacity
         activeOpacity={1}
         onPress={() => updateSwitchData(1)}
         style={{
           flex: 1,
-          backgroundColor:
-            getSelectionMode == 1 ? colors.primary : colors.secondary,
+          backgroundColor: getSelectionMode == 1 ? colors.primary : colors.secondary,
           borderRadius: 10,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <Text
           style={{
             color: getSelectionMode == 1 ? colors.textDark : colors.textLight,
             fontSize: 14,
-            fontFamily: "Roboto-Medium",
-          }}
-        >
+            fontFamily: 'Roboto-Medium',
+          }}>
           {option1}
         </Text>
       </TouchableOpacity>
@@ -54,20 +51,17 @@ export default function CustomSwitch({
         onPress={() => updateSwitchData(2)}
         style={{
           flex: 1,
-          backgroundColor:
-            getSelectionMode == 2 ? colors.primary : colors.secondary,
+          backgroundColor: getSelectionMode == 2 ? colors.primary : colors.secondary,
           borderRadius: 10,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <Text
           style={{
             color: getSelectionMode == 2 ? colors.textDark : colors.textLight,
             fontSize: 14,
-            fontFamily: "Roboto-Medium",
-          }}
-        >
+            fontFamily: 'Roboto-Medium',
+          }}>
           {option2}
         </Text>
       </TouchableOpacity>

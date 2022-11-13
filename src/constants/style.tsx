@@ -37,9 +37,11 @@ export const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   reviewContainer: {
+    borderWidth: 5,
     borderRadius: 8,
   },
   smallerTextBox: {
+    borderWidth: 1,
     borderColor: "black",
     width: 300,
     fontSize: 18,
@@ -70,6 +72,7 @@ export const styles = StyleSheet.create({
   },
   container2: {
     backgroundColor: "rgba(156, 156, 156, 0.7)",
+    borderWidth: 1,
     borderColor: "black",
     padding: 10,
     margin: 3,
@@ -79,50 +82,14 @@ export const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   profileImage: { width: 150, height: 150, borderRadius: 8 },
-  profileImage2: {
-    margin: 4,
-    width: 90,
-    height: 90,
-    borderRadius: 8,
-  },
-  profileImage3: {
-    width: 130,
-    height: 130,
-    borderRadius: 8,
-  },
-  input: {
-    marginTop: 0,
-    height: 100,
-    margin: 0,
-    padding: 5,
-    maxWidth: 220,
-    borderRadius: 8,
-  },
-  homeScreenPostArea: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    width: 330,
-  },
+  profileImage2: { margin: 4, width: 90, height: 90, borderRadius: 8 },
+
   button2: {
     margin: 4,
     width: 120,
     height: 40,
     backgroundColor: "#d75555",
     borderRadius: 8,
-  },
-  button3: {
-    margin: 2,
-    width: 120,
-    height: 30,
-    backgroundColor: "#d75555",
-    borderRadius: 8,
-  },
-  buttonText2: {
-    textAlign: "center",
-    padding: 5,
-    color: "white",
-    fontSize: 13,
   },
   buttonText: {
     textAlign: "center",

@@ -5,14 +5,13 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import ProfileImage from "../components/ProfileImage";
 import Request from "../components/Request";
 import CustomSwitch from "../components/CustomSwitch";
 import Offer from "../components/Offers";
-import HomeScreenPostArea from "../components/HomeScreenPostArea";
+
 import { styles } from "../constants/style";
 const TodoScreen = ({ navigation }) => {
   const [favorsTab, setfavorsTab] = useState(1);
@@ -48,32 +47,23 @@ const TodoScreen = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <View style={styles.homeScreenPostArea}>
-                <TouchableOpacity onPress={() => navigation.openDrawer()}>
-                  <Image
-                    source={{
-                      uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
-                    }}
-                    style={styles.profileImage3}
-                  />
-                </TouchableOpacity>
-                <HomeScreenPostArea />
-              </View>
+              <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                <ProfileImage />
+              </TouchableOpacity>
+
               <View
                 style={{
-                  borderWidth: 1,
                   flexDirection: "row",
                   borderColor: "#C6C6C6",
+                  borderWidth: 1,
                   borderRadius: 8,
                   paddingHorizontal: 10,
                   paddingVertical: 8,
                   margin: 4,
-                  width: 350,
                 }}
               >
                 <Feather
                   name="search"
-                  width={100}
                   size={20}
                   color="#C6C6C6"
                   style={{ marginRight: 5 }}
