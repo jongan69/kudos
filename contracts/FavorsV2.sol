@@ -3,39 +3,39 @@
 
 pragma solidity ^0.8.6;
 
-contract TaskContract {
-    event AddTask(address recipient, uint taskId);
-    event DeleteTask(uint taskId, bool isDeleted);
+contract FavorsContractV2 {
+    event AddFavor(address recipient, uint favorId);
+    event DeleteFavor(uint favorId, bool isDeleted);
 
-    struct Task {
+    struct Favor {
      uint id;
-     string taskText;
+     string favorText;
      bool isDeleted;
     }
 
 
-    Task[] private tasks;
-    mapping(uint256 => address) taskToOwner;
+    Favor[] private favors;
+    mapping(uint256 => address) favorToOwner;
 
-    function addTask(string memory taskText, bool isDeleted) external {
-        uint taskId = tasks.length;
-        tasks.push(Task(taskId, taskText, isDeleted));
-        taskToOwner[taskId] = msg.sender;
-        emit AddTask(msg.sender, taskId);
+    function addFavor(string memory favorText, bool isDeleted) external {
+        uint favorId = favors.length;
+        favors.push(Favor(favorId, favorText, isDeleted));
+        favorToOwner[favorId] = msg.sender;
+        emit AddFavor(msg.sender, favorId);
     }
 
 
-    function getMyTasks() external view returns (Task[] memory){
-        Task[] memory temporary = new Task[](tasks.length);
+    function getMyTasks() external view returns (Favor[] memory){
+        Favor[] memory temporary = new Favor[](favors.length);
         uint counter = 0;
 
-        for(uint i = 0; i<tasks.length; i++) {
-            if(taskToOwner[i] == msg.sender && tasks[i].isDeleted == false) {
-                temporary[counter] = tasks[i];
+        for(uint i = 0; i<favors.length; i++) {
+            if(favorToOwner[i] == msg.sender && favors[i].isDeleted == false) {
+                temporary[counter] = favors[i];
                 counter++;
             }
         }
-        Task[] memory result = new Task[](counter);
+        Favor[] memory result = new Favor[](counter);
         for ( uint i=0; i < counter; i++) {
             result[i] = temporary[i];
         }
@@ -43,10 +43,10 @@ contract TaskContract {
     }
 
 
-    function deleteTasks(uint taskId, bool isDeleted) external {
-        if(taskToOwner[taskId] == msg.sender){
-            tasks[taskId].isDeleted = isDeleted;
-            emit DeleteTask(taskId, isDeleted);
+    function deleteTasks(uint favorId, bool isDeleted) external {
+        if(favorToOwner[favorId] == msg.sender){
+            favors[favorId].isDeleted = isDeleted;
+            emit DeleteFavor(favorId, isDeleted);
         }
     }
 }
