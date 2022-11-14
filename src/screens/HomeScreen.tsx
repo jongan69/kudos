@@ -14,7 +14,7 @@ import Feather from "react-native-vector-icons/Feather";
 
 import BannerSlider from "../components/BannerSlider";
 import { useTheme } from "@react-navigation/native";
-import { WEB_API_ROUTES } from "@env";
+import { WEB_API_ROUTES, FAVOR_CONTRACT } from "@env";
 
 import CustomSwitch from "../components/CustomSwitch";
 

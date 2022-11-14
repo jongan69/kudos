@@ -15,7 +15,7 @@ built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzi
 
 ## KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0x7f7A1D2196A6817bBF075f32C55128876F4E79AA
 
-## FAVORS CONTRACT ADDRESS (GOERLI): 0x32a37ff2979159de195172b411a50d08bc30f9f3
+## FAVORS CONTRACT ADDRESS (GOERLI): 0x6b326076F6D0ee9dBEF72a80f825FABB35C9762B
 
 [Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/VRF/VRFD20.sol&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
 
@@ -38,6 +38,7 @@ Web: <https://kudos-taupe.vercel.app/sign-in>
    1. Receive Test Link from <https://faucets.chain.link/>
    2. Create and Fund a VRF Subscription at <https://vrf.chain.link/>
    3. Deploy the `contracts/Favors.sol` via <https://remix.ethereum.org/>
+   4. Add Favor Contract Address to .env file
 
 ## Usage
 
