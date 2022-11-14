@@ -104,14 +104,14 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
         emit DiceLanded(requestId, d20Value);
     }
 
-    function collectBonus () public returns (bool)  {
+    function collectBonus () public returns (bool bonusCollected)  {
         bool alreadyCollected = false;
         if(!alreadyCollected) {
             require(s_results[msg.sender] != 0, "Dice not rolled");
             require(s_results[msg.sender] != ROLL_IN_PROGRESS, "Roll in progress");
             _token.approve(msg.sender, s_results[msg.sender]);
+            return alreadyCollected = true;
         }
-        return alreadyCollected = true;
     }
 
     function getMyFavors() external view returns (Favor[] memory) {
