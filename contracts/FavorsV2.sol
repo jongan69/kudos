@@ -56,55 +56,63 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
     mapping(address => uint256) private s_results;
     address acceptedBy;
 
-    constructor(uint64 subscriptionId, address token) VRFConsumerBaseV2(vrfCoordinator) {
+    constructor(uint64 subscriptionId, address token)
+        VRFConsumerBaseV2(vrfCoordinator)
+    {
         COORDINATOR = VRFCoordinatorV2Interface(vrfCoordinator);
         s_owner = msg.sender;
-        s_subscriptionId = subscriptionId; 
+        s_subscriptionId = subscriptionId;
         _token = IERC20(token);
     }
 
-    function addFavor(string memory favorText, bool isCompleted) external payable {
+    function addFavor(string memory favorText, bool isCompleted)
+        external
+        payable
+    {
         uint256 favorId = favors.length;
-        favors.push(Favor(favorId, favorText, isCompleted, msg.sender, acceptedBy));
+        favors.push(
+            Favor(favorId, favorText, isCompleted, msg.sender, acceptedBy)
+        );
         favorToOwner[favorId] = msg.sender;
         emit AddFavor(msg.sender, favorId);
-        
-        // When you post your first favor, you get your bonus
-        // require(s_results[msg.sender] == 0, 'Already rolled');
-        // firstFavor(msg.sender);
+
+        // When you post your first favor, you should get your bonus
+        firstFavor(msg.sender);
     }
 
-
     function firstFavor(address roller) internal returns (uint256 requestId) {
-         require(s_results[roller] == 0, 'Already rolled');
+        require(s_results[roller] == 0, "Already rolled");
         // Will revert if subscription is not set and funded.
-            requestId = COORDINATOR.requestRandomWords(
-                s_keyHash,
-                s_subscriptionId,
-                requestConfirmations,
-                callbackGasLimit,
-                numWords
-            );
+        requestId = COORDINATOR.requestRandomWords(
+            s_keyHash,
+            s_subscriptionId,
+            requestConfirmations,
+            callbackGasLimit,
+            numWords
+        );
         s_rollers[requestId] = roller;
         s_results[roller] = ROLL_IN_PROGRESS;
         emit DiceRolled(requestId, roller);
     }
 
-    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override {
+    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords)
+        internal
+        override
+    {
         uint256 d20Value = (randomWords[0] % 20) + 1;
         s_results[s_rollers[requestId]] = d20Value;
         emit DiceLanded(requestId, d20Value);
     }
 
-    function collectBonus(address player) public  {
-        require(s_results[player] != 0, 'Dice not rolled');
-        require(s_results[player] != ROLL_IN_PROGRESS, 'Roll in progress');
-        _token.approve(player, s_results[player]);
-        // s_results[player] is our users first favor bonus
-        // return getBonus(s_results[player]);
-        // Need to add ERC20 Sending functionality
+    function collectBonus () public returns (bool)  {
+        bool alreadyCollected = false;
+        if(!alreadyCollected) {
+            require(s_results[msg.sender] != 0, "Dice not rolled");
+            require(s_results[msg.sender] != ROLL_IN_PROGRESS, "Roll in progress");
+            _token.approve(msg.sender, s_results[msg.sender]);
+        }
+        return alreadyCollected = true;
     }
-
 
     function getMyFavors() external view returns (Favor[] memory) {
         Favor[] memory temporary = new Favor[](favors.length);
@@ -153,6 +161,7 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
         if (favorToOwner[favorId] == msg.sender) {
             favors[favorId].isCompleted = isCompleted;
             // Pay the acceptedBy user
+            _token.approve(favors[favorId].acceptedBy, 10);
             emit CompleteFavor(favorId, isCompleted);
         }
     }
