@@ -1,0 +1,296 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subscriptionId",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "have",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "want",
+						"type": "address"
+					}
+				],
+				"name": "OnlyCoordinatorCanFulfill",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "result",
+						"type": "uint256"
+					}
+				],
+				"name": "DiceLanded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "roller",
+						"type": "address"
+					}
+				],
+				"name": "DiceRolled",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "collectBonus",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "roller",
+						"type": "address"
+					}
+				],
+				"name": "createPlayer",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getBonus",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "playerAddresses",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "playerCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "randomWords",
+						"type": "uint256[]"
+					}
+				],
+				"name": "rawFulfillRandomWords",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "roller",
+						"type": "address"
+					}
+				],
+				"name": "storePlayer",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"collectBonus(address)": {
+					"params": {
+						"player": "address"
+					},
+					"returns": {
+						"_0": "favor as a string"
+					}
+				},
+				"constructor": {
+					"details": "NETWORK: Goerli",
+					"params": {
+						"subscriptionId": "subscription id that this consumer contract can use"
+					}
+				},
+				"createPlayer(address)": {
+					"details": "Warning: if the VRF response is delayed, avoid calling requestRandomness repeatedly as that would give miners/VRF operators latitude about which VRF response arrives first.You must review your implementation details with extreme care.",
+					"params": {
+						"roller": "address of the roller"
+					}
+				},
+				"getBonus(uint256)": {
+					"params": {
+						"id": "uint256"
+					},
+					"returns": {
+						"_0": "bonus int"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"collectBonus(address)": {
+					"notice": "Get the favor assigned to the player once the address has rolled"
+				},
+				"constructor": {
+					"notice": "Constructor inherits VRFConsumerBaseV2"
+				},
+				"createPlayer(address)": {
+					"notice": "Requests randomness"
+				},
+				"getBonus(uint256)": {
+					"notice": "get a random one time bonus from the id"
+				}
+			},
+			"notice": "Request testnet LINK and ETH here: https://faucets.chain.link/ Find information on LINK Token Contracts and get the latest ETH and LINK faucets here: https://docs.chain.link/docs/link-token-contracts/",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts\\Favors.sol": "Favors"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts\\Favors.sol": {
+			"keccak256": "0xb670254faebf9895bde9dcdf91616d33811883fe42215770d29f58e63af83815",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a2e1ee29bfd20535c0769ea19fb61190620318177b44c4fafd6292155895d91",
+				"dweb:/ipfs/QmQY2ZCUdtxGDZEPH9N1ZCpH3j5Xp8pqAYyQfFdoLtYMag"
+			]
+		},
+		"node_modules/@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol": {
+			"keccak256": "0x3d709a5e0f1f9b8841172b10ba8af785dd51a13eda9fc395723a706e51329904",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://038eef992d813c20737fbe94e3a36e5d541d1aa736158dd2a43dd5b840b8c360",
+				"dweb:/ipfs/QmZWJ25Yr1sUSAsfJRKvTMDmGkmy63hHhB495CUL1bpNz4"
+			]
+		},
+		"node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+			"keccak256": "0x54cdc97717cbae1a51a5500c8ee4875ebf056c95b54d2155a9544a79cb4f4494",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4bd670a55aacc0ab372835cd7e21b487f9fb69d8c6375234b68862a58f3b1153",
+				"dweb:/ipfs/QmRMdB9TFLgG1LXg9VSTWbZZ1yf3uY1RY3pPkoMN23JfZk"
+			]
+		}
+	},
+	"version": 1
+}
