@@ -1,5 +1,7 @@
-// Todo App Task Contract
-pragma solidity 0.8.6;
+// TodoApp Task Contract
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.6;
 
 contract TaskContract {
     event AddTask(address recipient, uint taskId);
