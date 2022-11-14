@@ -25,7 +25,7 @@ contract FavorsContractV2 {
     }
 
 
-    function getMyTasks() external view returns (Favor[] memory){
+    function getMyFavors() external view returns (Favor[] memory){
         Favor[] memory temporary = new Favor[](favors.length);
         uint counter = 0;
 
@@ -43,7 +43,7 @@ contract FavorsContractV2 {
     }
 
 
-    function deleteTasks(uint favorId, bool isDeleted) external {
+    function completeFavor(uint favorId, bool isDeleted) external {
         if(favorToOwner[favorId] == msg.sender){
             favors[favorId].isDeleted = isDeleted;
             emit DeleteFavor(favorId, isDeleted);
