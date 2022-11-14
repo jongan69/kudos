@@ -31,6 +31,7 @@
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
     "@reduxjs/toolkit": "^1.8.3",
+    "@thirdweb-dev/contracts": "^3.2.3",
     "@walletconnect/react-native-dapp": "^1.7.8",
     "@web3auth/react-native-sdk": "^3.2.1",
     "buffer": "^6.0.3",
