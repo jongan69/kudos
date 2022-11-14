@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   h2: {
     fontSize: 20,
     color: "black",
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
+    textShadowColor: "rgb(199, 199, 204)",
     textShadowOffset: { width: -1, height: 0 },
     textShadowRadius: 10,
   },
@@ -35,6 +35,12 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+  },
+  sideBySideFlexStart2: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    width: 350,
   },
   reviewContainer: {
     borderRadius: 8,
@@ -51,7 +57,7 @@ export const styles = StyleSheet.create({
   textBox: {
     width: 300,
     fontSize: 18,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgb(199, 199, 204)",
     padding: 5,
     borderRadius: 8,
   },
@@ -69,7 +75,7 @@ export const styles = StyleSheet.create({
     margin: 1,
   },
   container2: {
-    backgroundColor: "rgba(156, 156, 156, 0.7)",
+    backgroundColor: "rgb(199, 199, 204)",
     borderColor: "black",
     padding: 10,
     margin: 3,
@@ -84,11 +90,18 @@ export const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 8,
+    alignSelf: "flex-end",
   },
   profileImage3: {
     width: 130,
     height: 130,
     borderRadius: 8,
+  },
+  profileImage4: {
+    width: 50,
+    height: 50,
+    borderRadius: 100,
+    alignSelf: "flex-end",
   },
   input: {
     marginTop: 0,

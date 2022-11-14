@@ -15,7 +15,12 @@ const ProfileImage = () => {
   );
 };
 const styles = StyleSheet.create({
-  profileImage: { width: 150, height: 150, borderRadius: 8 },
+  profileImage: {
+    alignSelf: "flex-end",
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+  },
 });
 
 export default ProfileImage;
