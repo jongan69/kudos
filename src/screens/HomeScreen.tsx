@@ -20,17 +20,25 @@ import RPC from '../../ethersRPC'; // for using ethers.js
 
 export default function HomeScreen({ navigation }) {
   const { key, setKey } = React.useContext(AppContext);
+  const [favors, setFavors] = useState()
   const [favorsTab, setfavorsTab] = useState(1);
   const { colors } = useTheme();
+
+  React.useEffect(() => {
+    return async () => {
+      setFavors(await getFavors());
+    }
+  },[])
 
   //Function to get all Incomplete Favors
   const getFavors = async () => {
     const favs = await RPC.getAllIncompleteFavors();
+    return favs;
   };
 
   // Function to post a favor
   const postFavor = async () => {
-    const posts = await RPC.sendTransaction(key)
+    const posts = await RPC.sendTransaction(key);
   }
 
   const onSelectSwitch = (value: React.SetStateAction<number>) => {
@@ -50,17 +58,7 @@ export default function HomeScreen({ navigation }) {
             marginBottom: 20,
           }}
         >
-          {api && (
-            <Text
-              style={{
-                fontSize: 18,
-                fontFamily: "Roboto-Medium",
-                color: "orange",
-              }}
-            >
-              Hello
-            </Text>
-          )}
+          
 
           {favorsTab && (
             <View
@@ -95,6 +93,7 @@ export default function HomeScreen({ navigation }) {
               </View>
             </View>
           )}
+
         </View>
 
         {favorsTab == 2 && (
@@ -129,7 +128,7 @@ export default function HomeScreen({ navigation }) {
                   />
                   <View>
                     <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Service: </Text>
+                      <Text style={styles.text2}>{favors}</Text>
                       <Text style={styles.text}> Decorating</Text>
                     </View>
                     <View style={styles.sideBySideFlexStart}>
