@@ -4,7 +4,6 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
-  ImageBackground,
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -12,31 +11,30 @@ import {
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
-import BannerSlider from "../components/BannerSlider";
 import { useTheme } from "@react-navigation/native";
-import { WEB_API_ROUTES, FAVOR_CONTRACT } from "@env";
 
 import CustomSwitch from "../components/CustomSwitch";
+import { ethers } from "ethers";
+import { AppContext } from "../context/AppProvider";
+import RPC from '../../ethersRPC'; // for using ethers.js
 
 export default function HomeScreen({ navigation }) {
+  const { key, setKey } = React.useContext(AppContext);
   const [favorsTab, setfavorsTab] = useState(1);
-  const [api, setApi] = React.useState(null);
   const { colors } = useTheme();
 
-  // Get Trending Feed Data
-  React.useEffect(() => {
-    fetch(WEB_API_ROUTES)
-      .then((res) => res.json())
-      .then((data) => setApi({ name: data.name }));
-  }, []);
-
-  const renderBanner = ({ item, index }) => {
-    return <BannerSlider data={item} />;
+  //Function to get all Incomplete Favors
+  const getFavors = async () => {
+    const favs = await RPC.getAllIncompleteFavors();
   };
 
-  const onSelectSwitch = (value) => {
-    setfavorsTab(value);
+  // Function to post a favor
+  const postFavor = async () => {
+    const posts = await RPC.sendTransaction(key)
+  }
 
+  const onSelectSwitch = (value: React.SetStateAction<number>) => {
+    setfavorsTab(value);
     if (favorsTab == 2) {
       navigation.navigate("Favors");
     }
