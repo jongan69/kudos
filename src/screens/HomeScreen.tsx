@@ -100,7 +100,6 @@ export default function HomeScreen({ navigation }) {
               </View>
             </View>
           </View>
-
           <View style={{ marginVertical: 0 }}>
             <CustomSwitch
               selectionMode={1}
@@ -109,9 +108,6 @@ export default function HomeScreen({ navigation }) {
               onSelectSwitch={onSelectSwitch}
             />
           </View>
-
-
-
 
           {
             favorsTab == 2 && (
