@@ -77,9 +77,15 @@ To Run Nextjs App:
 - [x] ERC20 Contract
 - [x] Chainlink VRF
 - [x] FavorsV2 Contract
-- [ ] Mobile App Smart Contract Function Integration
-- [ ] Filecoin / IPFS: <https://nft.storage/>
-- [ ] User Profile Contract
+- [ ] Mobile App Smart Contract Function Integration:
+        1. Post Button => postFavor(text)
+        2. Refresh Favors Button => getAllIncompleteFavors()
+        3. Offers Tab => getMyFavors()
+        4. Accept Button => acceptFavor
+        5. Mark Completed Button => completeFavor(favorId)
+- [ ] Fix Nextjs App (Connect to Deployed Contract)
+- [ ] User Profile Contract / nHost
+- [ ] Use React-Native-Async-Storage for Persistent Login State and Data
 - [ ] Review +/- Test
 
 Message Signing
