@@ -10,14 +10,14 @@ import React from "react";
 import AppProvider from "./src/context/AppProvider";
 
 // For Nhost DB
-// import { NHOST_BACKEND_URL } from "@env";
+import { NHOST_BACKEND_URL } from "@env";
 import { Toasts } from '@backpackapp-io/react-native-toast';
 
-// const nhost = new NhostClient({
-//   backendUrl: NHOST_BACKEND_URL,
-//   clientStorageType: "expo-secure-storage",
-//   clientStorage: SecureStore,
-// });
+const nhost = new NhostClient({
+  backendUrl: NHOST_BACKEND_URL,
+  clientStorageType: "expo-secure-storage",
+  clientStorage: SecureStore,
+});
 
 // In Development, remove and test before PROD
 import { LogBox } from 'react-native';
@@ -33,11 +33,13 @@ export default function App() {
   } else {
     return (
       <AppProvider>
+        <NhostReactProvider nhost={nhost}>
           <SafeAreaProvider>
             <Navigation colorScheme={colorScheme} />
             <StatusBar />
             <Toasts />
           </SafeAreaProvider>
+        </NhostReactProvider>
       </AppProvider>
     );
   }
