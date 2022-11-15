@@ -1,16 +1,20 @@
 import React from "react";
 import { SafeAreaView, TextInput, Image, View, Text } from "react-native";
 import { styles } from "../constants/style";
-import Button from "./Button";
+import { useTheme } from "@react-navigation/native";
 const HomeScreenPostArea = () => {
   const [text, onChangeText] = React.useState("");
+  const { colors } = useTheme();
 
   return (
     <SafeAreaView>
       <View>
-        <View>
+        <View style={{ flexDirection: "column" }}>
           <TextInput
-            style={styles.input}
+            style={[
+              styles.input,
+              { borderColor: colors.text, color: colors.text },
+            ]}
             onChangeText={onChangeText}
             value={text}
             multiline

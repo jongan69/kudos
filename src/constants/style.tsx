@@ -3,26 +3,21 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    color: "black",
   },
   text2: {
     fontSize: 18,
-    color: "white",
     textShadowColor: "rgba(0, 0, 0, 0.5)",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 1,
   },
   h1: {
     fontSize: 25,
-    color: "black",
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
-    textShadowOffset: { width: -1, height: 0 },
+    color: "#d75555",
     textShadowRadius: 10,
   },
   h2: {
     fontSize: 20,
-    color: "black",
-    textShadowColor: "rgb(199, 199, 204)",
+    color: "#d75555",
     textShadowOffset: { width: -1, height: 0 },
     textShadowRadius: 10,
   },
@@ -57,7 +52,6 @@ export const styles = StyleSheet.create({
   textBox: {
     width: 300,
     fontSize: 18,
-    backgroundColor: "rgb(199, 199, 204)",
     padding: 5,
     borderRadius: 8,
   },
@@ -67,18 +61,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "#d75555",
     borderRadius: 8,
   },
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: "white",
-    paddingTop: 10,
-    margin: 1,
-  },
   container2: {
-    backgroundColor: "rgb(199, 199, 204)",
-    borderColor: "black",
     padding: 10,
-    margin: 3,
+    margin: 2,
     borderRadius: 8,
   },
   largeContainer: {
@@ -93,8 +78,8 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   profileImage3: {
-    width: 130,
-    height: 130,
+    width: 120,
+    height: 120,
     borderRadius: 8,
   },
   profileImage4: {
@@ -104,12 +89,12 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   input: {
-    marginTop: 0,
-    height: 100,
-    margin: 0,
+    margin: 4,
+    height: 90,
     padding: 5,
     maxWidth: 220,
     borderRadius: 8,
+    borderWidth: 1,
   },
   homeScreenPostArea: {
     flexDirection: "row",
@@ -125,7 +110,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   button3: {
-    margin: 2,
+    marginLeft: 95,
     width: 120,
     height: 30,
     backgroundColor: "#d75555",
@@ -147,7 +132,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
@@ -158,24 +143,24 @@ export const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   button4: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });

@@ -9,17 +9,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ColorSchemeName } from "react-native";
 import LinkingConfiguration from "./LinkingConfiguration";
-import { DarkTheme, LightTheme } from '../constants/Colors'
+import { DarkTheme, LightTheme } from "../constants/Colors";
 import AuthStack from "./AuthStack";
 import AppStack from "./AppStack";
 import { AppContext } from "../context/AppProvider";
-import { toast } from '@backpackapp-io/react-native-toast';
+import { toast } from "@backpackapp-io/react-native-toast";
 
-import {
-  RootStackParamList,
-} from "../../types";
- // import { useAuthenticationStatus } from "@nhost/react";
-
+import { RootStackParamList } from "../../types";
+// import { useAuthenticationStatus } from "@nhost/react";
 
 export default function Navigation({
   colorScheme,
@@ -45,12 +42,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   const { currentWalletAddress } = React.useContext(AppContext);
   React.useEffect(() => {
-    if(currentWalletAddress.length > 0){
-      toast.success('Welcome to the app!', {
-        width: 300
+    if (currentWalletAddress.length > 0) {
+      toast.success("Welcome to the app!", {
+        width: 300,
       });
     }
-  },[currentWalletAddress])
+  }, [currentWalletAddress]);
   return (
     <>
       <Stack.Navigator>
@@ -71,4 +68,3 @@ function RootNavigator() {
     </>
   );
 }
-

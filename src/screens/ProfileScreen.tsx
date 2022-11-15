@@ -8,6 +8,8 @@ const ProfileScreen = () => {
   const [showPrivateKey, setShowPrivateKey] = useState(false);
   const { email, currentWalletAddress, key, userInfo } =
     React.useContext(AppContext);
+  const { colors } = useTheme();
+
   return (
     <ScrollView>
       <View
@@ -33,23 +35,25 @@ const ProfileScreen = () => {
         />
         <View style={{ width: 300 }}>
           <View style={styles.sideBySideFlexStart}>
-            <Text style={styles.h2}>Wallet Address:</Text>
-            <Text style={styles.text}>
+            <Text style={[styles.h2, { color: colors.text }]}>
+              Wallet Address:{" "}
+            </Text>
+            <Text style={[styles.h2, { color: colors.text }]}>
               {currentWalletAddress.slice(0, 5)}...
               {currentWalletAddress.slice(-4)}
             </Text>
           </View>
           <View style={styles.sideBySideFlexStart}>
-            <Text style={styles.h2}>Email:</Text>
-            <Text style={styles.text}>{email}</Text>
+            <Text style={[styles.h2, { color: colors.text }]}>Email: </Text>
+            <Text style={[styles.h2, { color: colors.text }]}>{email}</Text>
           </View>
           <View style={styles.sideBySideFlexStart}>
-            <Text style={styles.h2}>Joined:</Text>
-            <Text style={styles.text}>11/11/2022</Text>
+            <Text style={[styles.h2, { color: colors.text }]}>Joined: </Text>
+            <Text style={[styles.h2, { color: colors.text }]}>11/11/2022</Text>
           </View>
           <View style={styles.sideBySideFlexStart}>
-            <Text style={styles.h2}>Location:</Text>
-            <Text style={styles.text}>Maine</Text>
+            <Text style={[styles.h2, { color: colors.text }]}>Location: </Text>
+            <Text style={[styles.h2, { color: colors.text }]}>Maine</Text>
           </View>
         </View>
         <TouchableOpacity onPress={() => setShowPrivateKey(!showPrivateKey)}>
@@ -59,12 +63,16 @@ const ProfileScreen = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        {showPrivateKey ? <Text style={styles.textBox}>{key}</Text> : <></>}
+        {showPrivateKey ? (
+          <Text style={[{ color: colors.text }, styles.textBox]}>{key}</Text>
+        ) : (
+          <></>
+        )}
         <View>
           <Text style={styles.h2}>Bio:</Text>
         </View>
 
-        <Text style={styles.textBox}>
+        <Text style={[{ color: colors.text }, styles.textBox]}>
           Watched a lot of Bob Ross so I'm pretty good at painting. Other
           skills: gardening, changing tyres, treating snake bites, predicting
           weather, throwing spirals etc. Whatever your needs are, drop me a
@@ -74,42 +82,58 @@ const ProfileScreen = () => {
           <Text style={styles.h2}>Reviews:</Text>
         </View>
         <View>
-          <View style={styles.container2}>
+          <View style={[{ borderColor: colors.background }, styles.container2]}>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Service: </Text>
-              <Text style={styles.text}>Hair Cut</Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Service:{" "}
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Hair Cut{" "}
+              </Text>
             </View>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Wallet Address: </Text>
-              <Text style={styles.text}>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Wallet Address:{" "}
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
                 {currentWalletAddress.slice(0, 5)}...
                 {currentWalletAddress.slice(-4)}
               </Text>
             </View>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Reviewer: </Text>
-              <Text style={styles.text}>Aaron</Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Reviewer:{" "}
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>Aaron</Text>
             </View>
             <Text style={styles.smallerTextBox}>
               By far the worst haircut I have ever received. I literally have a
               spot on the back of my head the size of a baseball.
             </Text>
           </View>
-          <View style={styles.container2}>
+          <View style={[{ borderColor: colors.background }, styles.container2]}>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Service: </Text>
-              <Text style={styles.text}>Hair Cut</Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Service:
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Hair Cut
+              </Text>
             </View>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Wallet Address: </Text>
-              <Text style={styles.text}>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Wallet Address:
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
                 {currentWalletAddress.slice(0, 5)}...
                 {currentWalletAddress.slice(-4)}
               </Text>
             </View>
             <View style={styles.sideBySideFlexStart}>
-              <Text style={styles.text2}>Reviewer: </Text>
-              <Text style={styles.text}>Lisa</Text>
+              <Text style={[{ color: colors.text }, styles.text]}>
+                Reviewer:
+              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>Lisa</Text>
             </View>
             <Text style={styles.smallerTextBox}>
               James was very professional and the food was delicious. Everything
