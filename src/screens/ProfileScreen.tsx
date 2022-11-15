@@ -71,18 +71,30 @@ const ProfileScreen = () => {
         <View>
           <Text style={styles.h2}>Bio:</Text>
         </View>
-
-        <Text style={[{ color: colors.text }, styles.textBox]}>
-          Watched a lot of Bob Ross so I'm pretty good at painting. Other
-          skills: gardening, changing tyres, treating snake bites, predicting
-          weather, throwing spirals etc. Whatever your needs are, drop me a
-          line, maybe I can help.{" "}
-        </Text>
+        <View
+          style={[
+            { borderColor: colors.border, color: colors.text },
+            styles.container2,
+          ]}
+        >
+          <Text style={[{ color: colors.text }, styles.text]}>
+            Watched a lot of Bob Ross so I'm pretty good at painting. Other
+            skills: gardening, changing tyres, treating snake bites, predicting
+            weather, throwing spirals etc. Whatever your needs are, drop me a
+            line, maybe I can help.
+          </Text>
+        </View>
         <View>
           <Text style={styles.h2}>Reviews:</Text>
         </View>
         <View>
-          <View style={[{ borderColor: colors.background }, styles.container2]}>
+          <View
+            s
+            style={[
+              { borderColor: colors.border, color: colors.text },
+              styles.container2,
+            ]}
+          >
             <View style={styles.sideBySideFlexStart}>
               <Text style={[{ color: colors.text }, styles.text]}>
                 Service:{" "}
@@ -106,19 +118,27 @@ const ProfileScreen = () => {
               </Text>
               <Text style={[{ color: colors.text }, styles.text]}>Aaron</Text>
             </View>
-            <Text style={styles.smallerTextBox}>
+            <Text
+              style={[
+                { borderColor: colors.border, color: colors.text },
+                styles.container2,
+              ]}
+            >
               By far the worst haircut I have ever received. I literally have a
               spot on the back of my head the size of a baseball.
             </Text>
           </View>
-          <View style={[{ borderColor: colors.background }, styles.container2]}>
+          <View
+            style={[
+              { borderColor: colors.border, color: colors.text },
+              styles.container2,
+            ]}
+          >
             <View style={styles.sideBySideFlexStart}>
               <Text style={[{ color: colors.text }, styles.text]}>
                 Service:
               </Text>
-              <Text style={[{ color: colors.text }, styles.text]}>
-                Hair Cut
-              </Text>
+              <Text style={[{ color: colors.text }, styles.text]}>Chef</Text>
             </View>
             <View style={styles.sideBySideFlexStart}>
               <Text style={[{ color: colors.text }, styles.text]}>
@@ -135,7 +155,12 @@ const ProfileScreen = () => {
               </Text>
               <Text style={[{ color: colors.text }, styles.text]}>Lisa</Text>
             </View>
-            <Text style={styles.smallerTextBox}>
+            <Text
+              style={[
+                { borderColor: colors.border, color: colors.text },
+                styles.container2,
+              ]}
+            >
               James was very professional and the food was delicious. Everything
               was very thoughtful and presented beautifully.
             </Text>

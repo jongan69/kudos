@@ -41,12 +41,10 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   smallerTextBox: {
-    borderColor: "black",
     width: 300,
     fontSize: 18,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
     padding: 5,
-    borderRadius: 8,
+    borderWidth: 1,
   },
 
   textBox: {
@@ -60,14 +58,17 @@ export const styles = StyleSheet.create({
     width: 190,
     backgroundColor: "#d75555",
     borderRadius: 8,
+    margin: 5,
   },
   container2: {
     padding: 10,
     margin: 2,
+    borderWidth: 1,
     borderRadius: 8,
   },
   largeContainer: {
     paddingBottom: 40,
+    borderWidth: 1,
   },
   profileImage: { width: 150, height: 150, borderRadius: 8 },
   profileImage2: {
@@ -103,7 +104,8 @@ export const styles = StyleSheet.create({
     width: 330,
   },
   button2: {
-    margin: 4,
+    marginBottom: 11,
+    marginLeft: 5,
     width: 120,
     height: 40,
     backgroundColor: "#d75555",

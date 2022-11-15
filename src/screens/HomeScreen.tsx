@@ -102,7 +102,10 @@ export default function HomeScreen({ navigation }) {
                   color="#C6C6C6"
                   style={{ marginRight: 5 }}
                 />
-                <TextInput placeholder="Search" />
+                <TextInput
+                  style={{ color: colors.text }}
+                  placeholder="Search"
+                />
               </View>
             </View>
           </View>
