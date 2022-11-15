@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { AppContext } from '../context/AppProvider';
-import { Text } from 'react-native'
-import { Card } from 'react-native-paper'
-import Graph from './Graph';
+import React, { useState } from "react";
+import { AppContext } from "../context/AppProvider";
+import { Text } from "react-native";
+import { Card } from "react-native-paper";
+import Graph from "./Graph";
 import { Buffer } from "buffer";
 import "@ethersproject/shims";
 import { ethers } from "ethers";
 
 export default function WalletOverview() {
-
   const [userInfo, setUserInfo] = useState("");
   const [console, setConsole] = useState("");
   const providerUrl = "https://rpc.ankr.com/eth"; // Or your desired provider url
@@ -73,10 +72,10 @@ export default function WalletOverview() {
     }
   };
 
-  const { currentWalletAddress, setCurrentWalletAddress } = React.useContext(AppContext);
+  const { currentWalletAddress, setCurrentWalletAddress } =
+    React.useContext(AppContext);
   return (
     <Card>
-
       {/* { Need to Make 1. Sign Message Form Component } */}
       {/* { Need to Make 2. Balance Display Component } */}
       {/* { Need to Make 3. Receive Money Display Component } */}
