@@ -27,7 +27,7 @@ const OnboardingScreen = ({ navigation }) => {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Image 
         style={{ height: 300, width: 300}}
-        source={require('../assets/images/logo.png')} />
+        source={require('../assets/backgrounds/anim1.gif')} />
       </View>
       <TouchableOpacity
         style={{

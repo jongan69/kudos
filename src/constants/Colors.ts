@@ -18,7 +18,7 @@ export const LightTheme = {
   colors: {
     primary: '#d75555',
     secondary: 'rgb(199, 199, 204)',
-    background: '##000',
+    background: '#000',
     card: '#ffffff',
     text: '#000',
     textLight: '#000',
