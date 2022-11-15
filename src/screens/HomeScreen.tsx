@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Pressable,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import HomeScreenPostArea from "../components/HomeScreenPostArea";
@@ -15,7 +16,6 @@ import { useTheme } from "@react-navigation/native";
 import CustomSwitch from "../components/CustomSwitch";
 import { AppContext } from "../context/AppProvider";
 import RPC from '../../ethersRPC'; // for using ethers.js
-import PostFavor from "../components/PostFavor";
 
 export default function HomeScreen({ navigation }) {
   const { key, setKey } = React.useContext(AppContext);
@@ -157,8 +157,13 @@ export default function HomeScreen({ navigation }) {
             )
           }
         </View>
-        <PostFavor />
       </ScrollView >
+      <Pressable
+        style={[styles.button4, { backgroundColor: colors.primary }]}
+        onPress={() => {}}
+      >
+        <Text style={[styles.textStyle, { backgroundColor: colors.primary }]}>Refresh Favors</Text>
+      </Pressable>
     </SafeAreaView >
   );
 };
