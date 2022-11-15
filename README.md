@@ -1,4 +1,4 @@
-# Kuods - Give to get
+# Kudos - Give to get
 
 -----
 
@@ -13,8 +13,11 @@ A full stack monorepo with
 
 built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzion8>
 
-# KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0x7f7A1D2196A6817bBF075f32C55128876F4E79AA
-# FAVORS CONTRACT ADDRESS (GOERLI): 0x175743e413D06400C663e80cDe716FC02B147623
+Test Net Deploy:
+
+## KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0xBe41Ed28a90835B7eAEc50B19098c7DFe13aad88
+
+## FAVORS CONTRACT ADDRESS (GOERLI): 0xAdd83EDAad338D848aE792fB819EF359003601fD
 
 [Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/VRF/VRFD20.sol&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
 
@@ -26,17 +29,19 @@ Web: <https://kudos-taupe.vercel.app/sign-in>
 
 ## Setup
 
-1. Create Nhost Account at <https://app.nhost.io/>
-2. Create Web3Auth.io Account at <https://dashboard.web3auth.io/>
-3. Copy into credentials .env and constant.js
+1. Create Web3Auth.io Account at <https://dashboard.web3auth.io/>
+2. Copy into credentials .env and constant.js
    Note: `WEB_API_ROUTES` would be the URL of the deployed nextjs app ie: vercel
-4. yarn install inside the root and web directories
+3. yarn install inside the root and web directories
 
 ### For smart contract functionality
 
    1. Receive Test Link from <https://faucets.chain.link/>
    2. Create and Fund a VRF Subscription at <https://vrf.chain.link/>
-   3. Deploy the `contracts/Favors.sol` via <https://remix.ethereum.org/>
+   3. Deploy the `contracts/KudosToken.sol` via <https://remix.ethereum.org/> with a Total Token Supply
+   4. Copy Token Contract Address
+   5. Deploy the `contracts/FavorsV2.sol` via <https://remix.ethereum.org/> with subscription ID and Token Contract Address
+   6. Add Favor Contract Address to .env file
 
 ## Usage
 
