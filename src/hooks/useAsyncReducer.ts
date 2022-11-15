@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-const useAsyncReducer = (reducer: any, initialState) => {
+const useAsyncReducer = (reducer: any, initialState: any) => {
   const [state, setState] = useState(initialState);
 
-  const dispatch = async action => {
+  const dispatch = async (action: any) => {
     const result = reducer(state, action);
     if (typeof result.then === "function") {
       try {

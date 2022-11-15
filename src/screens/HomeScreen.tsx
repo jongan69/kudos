@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   View,
+  Text,
   SafeAreaView,
   ScrollView,
   TextInput,
@@ -23,9 +24,14 @@ export default function HomeScreen({ navigation }) {
   const { colors } = useTheme();
 
   React.useEffect(() => {
-    return async () => {
-      setFavors(await getFavors());
-    }
+    let mounted = true;
+    getFavors()
+      .then(items => {
+        if(mounted) {
+          setFavors(items)
+        }
+      })
+    return () => mounted = false;
   }, [])
 
   //Function to get all Incomplete Favors
@@ -44,7 +50,6 @@ export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView>
       <ScrollView style={{ padding: 20 }}>
-
         <View
           style={{
             flex: 1,
@@ -151,8 +156,8 @@ export default function HomeScreen({ navigation }) {
               </View>
             )
           }
-          </View>
-          <PostFavor />
+        </View>
+        <PostFavor />
       </ScrollView >
     </SafeAreaView >
   );

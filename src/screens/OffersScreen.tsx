@@ -6,7 +6,7 @@ const OffersScreen = () => {
   const { colors } = useTheme();
   return (
     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-      <Text>Favorite Screen</Text>
+      <Text>Offer Screen</Text>
     </View>
   )
 }

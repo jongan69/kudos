@@ -70,9 +70,17 @@ To Run Nextjs App:
 
 ### To do
 
-1. Configure Storage of user data using local storage
-2. Finish Smart Contract Functions
-3. Configure Smart Contract Function Calls via React Native App:
+- [x] Expo React Native App
+- [x] Nextjs App
+- [x] Web3Auth - React Native SDK
+- [x] Thirdwebjs Auth - Nextjs SDK
+- [x] ERC20 Contract
+- [x] Chainlink VRF
+- [x] FavorsV2 Contract
+- [ ] Mobile App Smart Contract Function Integration
+- [ ] Filecoin / IPFS: <https://nft.storage/>
+- [ ] User Profile Contract
+- [ ] Review +/- Test
 
 Message Signing
 
