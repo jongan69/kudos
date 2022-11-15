@@ -17,6 +17,7 @@ import CustomSwitch from "../components/CustomSwitch";
 import { ethers } from "ethers";
 import { AppContext } from "../context/AppProvider";
 import RPC from '../../ethersRPC'; // for using ethers.js
+import PostFavor from "../components/PostFavor";
 
 export default function HomeScreen({ navigation }) {
   const { key, setKey } = React.useContext(AppContext);
@@ -28,18 +29,13 @@ export default function HomeScreen({ navigation }) {
     return async () => {
       setFavors(await getFavors());
     }
-  },[])
+  }, [])
 
   //Function to get all Incomplete Favors
   const getFavors = async () => {
     const favs = await RPC.getAllIncompleteFavors();
     return favs;
   };
-
-  // Function to post a favor
-  const postFavor = async () => {
-    const posts = await RPC.sendTransaction(key);
-  }
 
   const onSelectSwitch = (value: React.SetStateAction<number>) => {
     setfavorsTab(value);
@@ -58,53 +54,38 @@ export default function HomeScreen({ navigation }) {
             marginBottom: 20,
           }}
         >
-          
-
-          {favorsTab && (
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: 50,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.openDrawer()}>
-                <View>
-                  <Image
-                    source={{
-                      uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
-                    }}
-                    style={styles.profileImage}
-                  />
-                </View>
-              </TouchableOpacity>
-
-              <View
-                style={{
-                  margin: 3,
-                  borderWidth: 1,
-                  borderRadius: 8,
-                  width: 250,
-                }}
-              >
-                <Feather name="search" size={0} color={colors.border} />
-                <TextInput placeholder="Search" />
-              </View>
-            </View>
-          )}
-
-        </View>
-
-        {favorsTab == 2 && (
           <View
             style={{
-              flexDirection: "row",
-              borderColor: "#C6C6C6",
-              borderRadius: 8,
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              paddingTop: 50,
             }}
-          ></View>
-        )}
+          >
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <View>
+                <Image
+                  source={{
+                    uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
+                  }}
+                  style={styles.profileImage}
+                />
+              </View>
+            </TouchableOpacity>
+
+            <View
+              style={{
+                margin: 3,
+                borderWidth: 1,
+                borderRadius: 8,
+                width: 250,
+              }}
+            >
+              <Feather name="search" size={0} color={colors.primary} />
+              <TextInput placeholder="Search" />
+            </View>
+          </View>
+        </View>
 
         <View style={{ marginVertical: 20 }}>
           <CustomSwitch
@@ -115,7 +96,7 @@ export default function HomeScreen({ navigation }) {
           />
         </View>
 
-        {favorsTab == 1 ? (
+        {favorsTab == 1 && (
           <View style={{ paddingBottom: 30 }}>
             <ScrollView>
               <View style={styles.container2}>
@@ -128,8 +109,8 @@ export default function HomeScreen({ navigation }) {
                   />
                   <View>
                     <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>{favors}</Text>
-                      <Text style={styles.text}> Decorating</Text>
+                      <Text style={styles.text2}>Service: </Text>
+                      <Text style={styles.text}>{favors}</Text>
                     </View>
                     <View style={styles.sideBySideFlexStart}>
                       <Text style={styles.text2}>Wallet Address: </Text>
@@ -154,48 +135,11 @@ export default function HomeScreen({ navigation }) {
                   </View>
                 </View>
               </View>
-              <View style={styles.container2}>
-                <View style={styles.sideBySideFlexStart}>
-                  <Image
-                    source={{
-                      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzNFpIvdjmfWTooLsmpGiyr5iL4rd1h4VOsQ&usqp=CAU",
-                    }}
-                    style={styles.profileImage2}
-                  />
-                  <View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Service: </Text>
-                      <Text style={styles.text}> Assemble Furniture</Text>
-                    </View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Wallet Address: </Text>
-                      <Text style={styles.text}>0x8mr9...1k8q</Text>
-                    </View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Requester: </Text>
-                      <Text style={styles.text}>Tegan</Text>
-                    </View>
-                  </View>
-                </View>
-                <Text style={styles.smallerTextBox}>
-                  Looking for someone to help me assemble furniture.{" "}
-                </Text>
-                <View style={styles.sideBySideCenter}>
-                  <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Volunteer</Text>
-                  </View>
-                  <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Comment</Text>
-                  </View>
-                </View>
-              </View>
             </ScrollView>
           </View>
-        ) : (
-          <></>
         )}
 
-        {favorsTab == 2 ? (
+        {favorsTab == 2 && (
           <View>
             <ScrollView>
               <View style={styles.container2}>
@@ -234,79 +178,10 @@ export default function HomeScreen({ navigation }) {
                   </View>
                 </View>
               </View>
-              <View style={styles.container2}>
-                <View style={styles.sideBySideFlexStart}>
-                  <Image
-                    source={{
-                      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJVeSFfcWIjRx5vPZRFrmALPXmNd72NJPTgw&usqp=CAU",
-                    }}
-                    style={styles.profileImage2}
-                  />
-                  <View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Service: </Text>
-                      <Text style={styles.text}> Assemble Furniture</Text>
-                    </View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Wallet Address: </Text>
-                      <Text style={styles.text}>0x8nr9...1k8q</Text>
-                    </View>
-                    <View style={styles.sideBySideFlexStart}>
-                      <Text style={styles.text2}>Volunteer: </Text>
-                      <Text style={styles.text}>Andrew</Text>
-                    </View>
-                  </View>
-                </View>
-                <Text style={styles.smallerTextBox}>
-                  I will teach you how to drive. Location: Portland, Maine
-                </Text>
-                <View style={styles.sideBySideCenter}>
-                  <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Accept</Text>
-                  </View>
-                  <View style={styles.button2}>
-                    <Text style={styles.buttonText}>Comment</Text>
-                  </View>
-                </View>
-              </View>
             </ScrollView>
           </View>
-        ) : (
-          <></>
         )}
-        {/* {favorsTab == 1 &&
-          freeGames.map(item => (
-            <ListItem
-              key={item.id}
-              photo={item.poster}
-              title={item.title}
-              subTitle={item.subtitle}
-              isFree={item.isFree}
-              onPress={() =>
-                navigation.navigate('GameDetails', {
-                  title: item.title,
-                  id: item.id,
-                })
-              }
-            />
-          ))} */}
-        {/* {favorsTab == 2 &&
-          paidGames.map(item => (
-            <ListItem
-              key={item.id}
-              photo={item.poster}
-              title={item.title}
-              subTitle={item.subtitle}
-              isFree={item.isFree}
-              price={item.price}
-              onPress={() =>
-                navigation.navigate('GameDetails', {
-                  title: item.title,
-                  id: item.id,
-                })
-              }
-            />
-          ))} */}
+        <PostFavor/>
       </ScrollView>
     </SafeAreaView>
   );

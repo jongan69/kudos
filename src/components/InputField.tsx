@@ -28,7 +28,7 @@ export default function InputField({
           placeholderTextColor={colors.text}
           placeholder={label}
           keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0, color: colors.text}}
+          style={{flex: 1, color: colors.text}}
           secureTextEntry={true}
           value={value}
           onChangeText={onChangeText}
@@ -38,7 +38,7 @@ export default function InputField({
           placeholderTextColor={colors.text}
           placeholder={label}
           keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0, color: colors.text}}
+          style={{flex: 1, color: colors.text, backgroundColor: colors.background }}
           value={value}
           onChangeText={onChangeText}
         />

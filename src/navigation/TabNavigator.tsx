@@ -72,7 +72,7 @@ const TabNavigator = () => {
         name="Payment"
         component={PaymentScreen}
         options={{
-          tabBarBadge: 3,
+          tabBarBadge: 0,
           tabBarBadgeStyle: {backgroundColor: colors.notification},
           tabBarIcon: ({color, size}) => (
             <Ionicons name="wallet" color={color} size={size} />
