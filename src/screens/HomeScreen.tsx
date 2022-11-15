@@ -130,9 +130,9 @@ export default function HomeScreen({ navigation }) {
           ) : (
             <Offer
               uri="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtZYi9Q7zPvN-N8b0v1ZIPR0GoqU1ev2yGbw&usqp=CAU"
-              service="Decorating"
+              service="Food Delivery"
               walletAddress="0xpr3...eb73"
-              name="Chad"
+              name="Agnes"
               message="I will make you home made ice-cream. I'll deliver it anywhere
               around Lewiston, Maine."
             />

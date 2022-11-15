@@ -2,6 +2,7 @@ import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
 import ProfileImage from "../components/ProfileImage";
 import ToDoItem from "../components/ToDoItem";
+import { ToDoList } from "../constants/favorsList";
 import {
   ScrollView,
   SafeAreaView,
@@ -9,8 +10,18 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import CustomSwitch from "../components/CustomSwitch";
+
 import { styles } from "../constants/style";
 const TodoScreen = ({ navigation }) => {
+  const [favorsTab, setfavorsTab] = useState(1);
+
+  const onSelectSwitch = (value: React.SetStateAction<number>) => {
+    setfavorsTab(value);
+    if (favorsTab == 2) {
+      navigation.navigate("Favors");
+    }
+  };
   return (
     <SafeAreaView>
       <ScrollView style={{ padding: 20 }}>
@@ -19,20 +30,70 @@ const TodoScreen = ({ navigation }) => {
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
-            padding: 40,
+            padding: 20,
           }}
         >
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ProfileImage />
           </TouchableOpacity>
           <Text style={styles.h1}>James's Todo List</Text>
-          <ToDoItem
-            uri="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSggsi3n1ZuvJsnxOEP_UbHmlgoLBMVlTyghbFMoH-zGzcdYWj48nSV_wcdUNXIt4f9beE&usqp=CAU"
-            service="Decorating"
-            walletAddress="0xpr3...eb73"
-            name="Chad"
-            message="Drive U-haul to 6129 Marsden St, Philadelphia, PA 19135."
-          />
+          <View style={{ marginVertical: 0 }}>
+            <CustomSwitch
+              selectionMode={1}
+              option1="Pending"
+              option2="Completed"
+              onSelectSwitch={onSelectSwitch}
+            />
+          </View>
+          {favorsTab == 1 ? (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 1,
+              }}
+            >
+              <Text style={styles.h1}>Pending Items</Text>
+              {ToDoList.map((item) =>
+                item.isCompleted ? (
+                  <ToDoItem
+                    uri={item.uri}
+                    service={item.service}
+                    walletAddress={item.walletAddress}
+                    name={item.name}
+                    completed={item.isCompleted}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+            </View>
+          ) : (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 1,
+              }}
+            >
+              <Text style={styles.h1}>Completed Items</Text>
+              {ToDoList.map((item) =>
+                !item.isCompleted ? (
+                  <ToDoItem
+                    uri={item.uri}
+                    service={item.service}
+                    walletAddress={item.walletAddress}
+                    name={item.name}
+                    completed={item.isCompleted}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+            </View>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
