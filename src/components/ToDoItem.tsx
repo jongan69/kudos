@@ -1,170 +1,103 @@
-import { View, Image, Alert, Modal, Text, Pressable } from "react-native";
-import { styles } from "../constants/style";
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
+import ProfileImage from "../components/ProfileImage";
+import ToDoItem from "../components/ToDoItem";
+import { ToDoList } from "../constants/favorsList";
+import {
+  ScrollView,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import CustomSwitch from "../components/CustomSwitch";
 
-const ToDoItem = (props) => {
-  const { colors } = useTheme();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  const [showPopUp, setShowPopUp] = useState(false);
+import { styles } from "../constants/style";
+const TodoScreen = ({ navigation }) => {
+  const [favorsTab, setfavorsTab] = useState(1);
 
+  const onSelectSwitch = (value: React.SetStateAction<number>) => {
+    setfavorsTab(value);
+    if (favorsTab == 2) {
+      navigation.navigate("Favors");
+    }
+  };
   return (
-    <View
-      style={[
-        { borderColor: colors.border, color: colors.text },
-        styles.container2,
-      ]}
-    >
-      <View style={styles.sideBySideFlexStart}>
-        <Image
-          source={{
-            uri: props.uri,
-          }}
-          style={styles.profileImage2}
-        />
-        <View>
-          <View style={styles.sideBySideFlexStart}>
-            <Text style={[{ color: colors.text }, styles.text]}>Service: </Text>
-            <Text style={[{ color: colors.text }, styles.text]}>
-              {props.service}
-            </Text>
-          </View>
-          <View style={styles.sideBySideFlexStart}>
-            <Text style={[{ color: colors.text }, styles.text]}>
-              Wallet Address:{" "}
-            </Text>
-            <Text style={[{ color: colors.text }, styles.text]}>
-              {props.walletAddress}
-            </Text>
-          </View>
-          <View style={styles.sideBySideFlexStart}>
-            <Text style={[{ color: colors.text }, styles.text]}>Name:</Text>
-            <Text style={[{ color: colors.text }, styles.text]}>
-              {" "}
-              {props.name}
-            </Text>
-          </View>
-        </View>
-      </View>
-
-      <Text style={[{ color: colors.text }, styles.text]}>{props.message}</Text>
-      {!showPopUp ? (
-        <View style={styles.sideBySideCenter}>
-          <View style={completed ? styles.button5 : styles.buttonGray}>
-            <Text
-              onPress={() => setCompleted(!completed)}
-              style={[{ color: colors.text }, styles.text2]}
-            >
-              <Text
-                onPress={() => setCompleted(!completed)}
-                style={styles.text}
-              >
-                {completed ? "Mark Completed" : "Mark Incomplete"}
-              </Text>
-            </Text>
-          </View>
-          <View style={styles.button5}>
-            <Text
-              onPress={() => setShowPopUp(!showPopUp)}
-              style={[{ color: colors.text }, styles.text2]}
-            >
-              Withdraw
-            </Text>
-          </View>
-        </View>
-      ) : (
-        <></>
-      )}
-      {completed ? (
-        <Text
-          onPress={() => setCompleted(!completed)}
-          style={styles.buttonText}
-        ></Text>
-      ) : (
-        <></>
-      )}
-      {showPopUp ? (
+    <SafeAreaView>
+      <ScrollView style={{ padding: 20 }}>
         <View
-          style={[
-            {
-              backgroundColor: colors.border,
-              borderColor: colors.border,
-              color: colors.text,
-              padding: 1,
-            },
-            styles.centeredView,
-          ]}
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 20,
+          }}
         >
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              Alert.alert("Modal has been closed.");
-              setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={styles.centeredView}>
-              <View
-                style={[
-                  {
-                    backgroundColor: colors.background,
-                    borderColor: colors.border,
-                    color: colors.text,
-                    padding: 1,
-                  },
-                  styles.modalView,
-                ]}
-              >
-                <Text style={styles.buttonText}>
-                  You have withdrawn from this task.
-                </Text>
-                <Pressable
-                  style={[styles.button4]}
-                  onPress={() => {
-                    setModalVisible(!modalVisible), setShowPopUp(!showPopUp);
-                  }}
-                >
-                  <Text style={styles.buttonText}>Okay</Text>
-                </Pressable>
-              </View>
-            </View>
-          </Modal>
-          <View>
-            <Text
-              style={[
-                {
-                  borderColor: colors.border,
-                  color: colors.text,
-                },
-                styles.text,
-              ]}
-            >
-              Are you sure you want to withdraw? This will affect your
-              reliability rating.
-            </Text>
-            <View style={styles.sideBySideCenter}>
-              <Pressable
-                style={[styles.button, styles.button2]}
-                onPress={() => setModalVisible(false)}
-              >
-                <Text style={styles.buttonText}>Cancel</Text>
-              </Pressable>
-              <Pressable
-                style={[styles.button, styles.button2]}
-                onPress={() => setModalVisible(true)}
-              >
-                <Text style={styles.buttonText}>Withdraw</Text>
-              </Pressable>
-            </View>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <ProfileImage />
+          </TouchableOpacity>
+          <Text style={styles.h1}>James's Todo List</Text>
+          <View style={{ marginVertical: 0 }}>
+            <CustomSwitch
+              selectionMode={1}
+              option1="Pending"
+              option2="Completed"
+              onSelectSwitch={onSelectSwitch}
+            />
           </View>
+          {favorsTab == 1 ? (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 1,
+              }}
+            >
+              <Text style={styles.h1}>Pending Items</Text>
+              {ToDoList.map((item) =>
+                item.isCompleted ? (
+                  <ToDoItem
+                    uri={item.uri}
+                    service={item.service}
+                    walletAddress={item.walletAddress}
+                    name={item.name}
+                    completed={item.isCompleted}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+            </View>
+          ) : (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 1,
+              }}
+            >
+              <Text style={styles.h1}>Completed Items</Text>
+              {ToDoList.map((item) =>
+                !item.isCompleted ? (
+                  <ToDoItem
+                    uri={item.uri}
+                    service={item.service}
+                    walletAddress={item.walletAddress}
+                    name={item.name}
+                    completed={item.isCompleted}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+            </View>
+          )}
         </View>
-      ) : (
-        <></>
-      )}
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-export default ToDoItem;
+export default TodoScreen;
