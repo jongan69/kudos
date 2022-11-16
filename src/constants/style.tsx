@@ -169,6 +169,14 @@ export const styles = StyleSheet.create({
     padding: 6,
     margin: 3,
   },
+  button6: {
+    height: 40,
+    backgroundColor: "#d75555",
+    borderRadius: 8,
+    padding: 0,
+    width: 130,
+    margin: 3,
+  },
   buttonGray: {
     height: 40,
     backgroundColor: "rgb(199, 199, 204)",
