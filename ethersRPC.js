@@ -7,6 +7,8 @@ import FavorABI from './artifacts/FavorsContractV2_metadata.json'
 // To do for contract deploy
 // 1. Compile + Deploy Token Contract
 // 2. Make Chainlink VRF subscription
+// 3. Compile + Deploy Favor Contract w/ Subscription ID and Contract Address
+// 4. Use Favor Contract Address w/ Favor Contract ABI to Invoke Smart Contract Functions
 
 global.Buffer = global.Buffer || Buffer;
 const providerUrl = 'https://rpc.ankr.com/eth'; // Or your desired provider url
