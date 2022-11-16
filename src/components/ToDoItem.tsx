@@ -37,7 +37,7 @@ const ToDoItem = (props) => {
           </View>
           <View style={styles.sideBySideFlexStart}>
             <Text style={[{ color: colors.text }, styles.text]}>
-              Wallet Address:{" "}
+              Wallet Address:
             </Text>
             <Text style={[{ color: colors.text }, styles.text]}>
               {props.walletAddress}
@@ -49,11 +49,14 @@ const ToDoItem = (props) => {
               {props.name}
             </Text>
           </View>
+          <Text style={[{ color: colors.text }, styles.text]}>
+            {props.mess}
+          </Text>
         </View>
       </View>
 
-      <Text style={[{ color: colors.text }, styles.text]}>{props.message}</Text>
-      {!showWithdrawalPopUp ? (
+      <Text style={[{ color: colors.text }, styles.text]}>{props.mess}</Text>
+      {!showWithdrawalPopUp && !showMarkCompletedPopUp ? (
         <View style={styles.sideBySideCenter}>
           <View style={completed ? styles.button5 : styles.buttonGray}>
             <Text
@@ -117,8 +120,8 @@ const ToDoItem = (props) => {
                 <Pressable
                   style={[styles.button4]}
                   onPress={() => {
-                    setwithdrawalModalVisible(!withdrawalModalVisible),
-                      setshowWithdrawalPopUp(!showWithdrawalPopUp);
+                    setwithdrawalModalVisible(false),
+                      setshowWithdrawalPopUp(false);
                   }}
                 >
                   <Text style={styles.buttonText}>Okay</Text>
@@ -220,7 +223,7 @@ const ToDoItem = (props) => {
               ]}
             >
               Are you sure you want to mark this task as
-              {completed ? " complete" : " incomplete"}? The requester will be
+              {completed ? " incomplete" : " complete"}? The requester will be
               alerted. You will recieve payment once they coonfirm the recieval
               of the goods and or services.
             </Text>
@@ -237,7 +240,7 @@ const ToDoItem = (props) => {
               >
                 <Text style={styles.buttonText}>
                   {" "}
-                  {completed ? "Mark Complete" : "Mark Incomplete"}
+                  {completed ? "Mark Incomplete" : "Mark Complete"}
                 </Text>
               </Pressable>
             </View>
