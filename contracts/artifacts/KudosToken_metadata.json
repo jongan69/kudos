@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.6+commit.11564f7e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -334,9 +334,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts\\KudosToken.sol": "KudosToken"
+			"contracts/KudosToken.sol": "KudosToken"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -380,7 +380,7 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"contracts\\KudosToken.sol": {
+		"contracts/KudosToken.sol": {
 			"keccak256": "0x7906f21a4e4a6e5fd7307d5e086810fb968bcf6f5d7e5874dd51e5c95d30d07e",
 			"license": "MIT",
 			"urls": [

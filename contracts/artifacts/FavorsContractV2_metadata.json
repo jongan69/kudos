@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.6+commit.11564f7e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -306,9 +306,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts\\FavorsV2.sol": "FavorsContractV2"
+			"contracts/FavorsV2.sol": "FavorsContractV2"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -344,7 +344,7 @@
 				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
 			]
 		},
-		"contracts\\FavorsV2.sol": {
+		"contracts/FavorsV2.sol": {
 			"keccak256": "0x11272fd5a2288a5691fc05f072150659311b3758113d187ead35c5122f787885",
 			"license": "MIT",
 			"urls": [

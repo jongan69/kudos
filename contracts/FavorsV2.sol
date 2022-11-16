@@ -6,6 +6,11 @@ import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+// import "../node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
+// import "../node_modules/@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
+// import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+// Receive Test Link from https://faucets.chain.link/
+
 contract FavorsContractV2 is VRFConsumerBaseV2 {
     uint256 private constant ROLL_IN_PROGRESS = 42;
 
