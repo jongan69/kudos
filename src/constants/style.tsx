@@ -97,6 +97,14 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
   },
+  input2: {
+    margin: 4,
+    height: 90,
+    padding: 5,
+    width: 250,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
   homeScreenPostArea: {
     flexDirection: "row",
     justifyContent: "center",
@@ -143,10 +151,14 @@ export const styles = StyleSheet.create({
     width: 300,
     padding: 50,
     height: 200,
-    backgroundColor: "#123456",
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "rgb(199, 199, 204)",
   },
   button4: {
     borderRadius: 8,
+    backgroundColor: "#d75555",
+
     padding: 10,
     elevation: 2,
   },

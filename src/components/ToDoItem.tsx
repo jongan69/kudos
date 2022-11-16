@@ -87,7 +87,12 @@ const ToDoItem = (props) => {
       {showPopUp ? (
         <View
           style={[
-            { borderColor: colors.border, color: colors.text },
+            {
+              backgroundColor: colors.border,
+              borderColor: colors.border,
+              color: colors.text,
+              padding: 1,
+            },
             styles.centeredView,
           ]}
         >
@@ -101,12 +106,22 @@ const ToDoItem = (props) => {
             }}
           >
             <View style={styles.centeredView}>
-              <View style={styles.modalView}>
+              <View
+                style={[
+                  {
+                    backgroundColor: colors.background,
+                    borderColor: colors.border,
+                    color: colors.text,
+                    padding: 1,
+                  },
+                  styles.modalView,
+                ]}
+              >
                 <Text style={styles.buttonText}>
                   You have withdrawn from this task.
                 </Text>
                 <Pressable
-                  style={[styles.button2]}
+                  style={[styles.button4]}
                   onPress={() => {
                     setModalVisible(!modalVisible), setShowPopUp(!showPopUp);
                   }}
@@ -116,24 +131,23 @@ const ToDoItem = (props) => {
               </View>
             </View>
           </Modal>
-          <View
-            style={[
-              {
-                backgroundColor: "#4a2b7e",
-                borderColor: colors.border,
-                color: colors.text,
-              },
-              styles.text,
-            ]}
-          >
-            <Text>
+          <View>
+            <Text
+              style={[
+                {
+                  borderColor: colors.border,
+                  color: colors.text,
+                },
+                styles.text,
+              ]}
+            >
               Are you sure you want to withdraw? This will affect your
               reliability rating.
             </Text>
             <View style={styles.sideBySideCenter}>
               <Pressable
                 style={[styles.button, styles.button2]}
-                onPress={() => setModalVisible(true)}
+                onPress={() => setModalVisible(false)}
               >
                 <Text style={styles.buttonText}>Cancel</Text>
               </Pressable>
