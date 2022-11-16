@@ -4,6 +4,10 @@ import { Buffer } from 'buffer';
 import { FAVOR_CONTRACT } from "@env"
 import FavorABI from './artifacts/FavorsContractV2_metadata.json'
 
+// To do for contract deploy
+// 1. Compile + Deploy Token Contract
+// 2. Make Chainlink VRF subscription
+
 global.Buffer = global.Buffer || Buffer;
 const providerUrl = 'https://rpc.ankr.com/eth'; // Or your desired provider url
 
