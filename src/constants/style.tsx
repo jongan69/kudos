@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 5,
     width: 60,
-    height: 60
+    height: 60,
   },
   container2: {
     padding: 10,
@@ -89,7 +89,7 @@ export const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 8,
-    margin: 2
+    margin: 2,
   },
   profileImage4: {
     width: 50,
@@ -134,7 +134,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#d75555",
     borderRadius: 8,
     margin: 5,
-    alignSelf: 'flex-start'
+    alignSelf: "flex-start",
   },
   buttonText2: {
     textAlign: "center",
@@ -153,7 +153,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderRadius: 8,
-    backgroundColor: 'rgb(199, 199, 204)'
   },
   modalView: {
     justifyContent: "center",
