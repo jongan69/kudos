@@ -5,67 +5,30 @@ import InputField from "./InputField";
 import { Ionicons } from "@expo/vector-icons";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { AppContext } from "../context/AppProvider";
+import { styles } from "../constants/style";
 
 const GetFavorsButton = () => {
-  const { key, setKey, currentWalletAddress } = React.useContext(AppContext);
-  const [favorText, setFavorText] = useState<String>();
-  const [modalVisible, setModalVisible] = useState(false);
+  const { key, setKey } = React.useContext(AppContext);
   const { colors } = useTheme();
+  const [favors, setFavors] = useState();
 
-  // Function to post a favor to contract
-  const postFavor = async (favor: string) => {
-    const post = await RPC.postFavor(favor);
-    return post;
-  }
+  //Function to get all Incomplete Favors
+  const getFavors = async () => {
+    const favs = await RPC.getAllIncompleteFavors(key);
+    setFavors(favs);
+  };
 
   return (
     <View style={styles.centeredView}>
+      { favors && <Text> Some Data was found</Text>}
       <Pressable
-        style={[styles.button, { backgroundColor: colors.primary }]}
-        onPress={() => setModalVisible(true)}
+        style={[styles.button4, { backgroundColor: colors.primary }]}
+        onPress={() => getFavors()}
       >
         <Text style={[styles.textStyle, { backgroundColor: colors.primary }]}>Refresh Favors</Text>
       </Pressable>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  }
-});
 
 export default GetFavorsButton;

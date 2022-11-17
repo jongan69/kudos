@@ -2,7 +2,7 @@ import '@ethersproject/shims';
 import { ethers } from 'ethers';
 import { Buffer } from 'buffer';
 import { FAVOR_CONTRACT } from "@env"
-import FavorABI from './artifacts/FavorsContractV2_metadata.json'
+import * as FavorABI from './artifacts/FavorsContractV2_metadata.json'
 
 // To do for contract deploy
 // 1. Compile + Deploy Token Contract
@@ -11,7 +11,7 @@ import FavorABI from './artifacts/FavorsContractV2_metadata.json'
 // 4. Use Favor Contract Address w/ Favor Contract ABI to Invoke Smart Contract Functions
 
 global.Buffer = global.Buffer || Buffer;
-const providerUrl = 'https://rpc.ankr.com/eth'; // Or your desired provider url
+const providerUrl = 'https://rpc.ankr.com/eth_goerli'; // Or your desired provider url
 
 const getChainId = async () => {
   try {
@@ -77,11 +77,12 @@ const signMessage = async key => {
   }
 };
 
-const postFavor = async (FavorText) => {
+const postFavor = async (FavorText, key) => {
   try {
     const provider = new ethers.getDefaultProvider(providerUrl);
-    const signer = provider.getSigner();
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.abi, signer);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
     let postFavors = await FavorContract.postFavor(FavorText);
     return postFavors;
   } catch (error) {
@@ -101,12 +102,14 @@ const getMyFavors = async () => {
   }
 }
 
-const getAllIncompleteFavors = async () => {
+const getAllIncompleteFavors = async (key) => {
   try {
     const provider = new ethers.getDefaultProvider(providerUrl);
-    const signer = provider.getSigner();
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.abi, signer);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
     let allFavors = await FavorContract.getAllIncompleteFavors();
+    console.log('allFavors', allFavors)
     return allFavors;
   } catch (error) {
     console.log(error)
