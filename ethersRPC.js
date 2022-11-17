@@ -18,16 +18,21 @@ const postFavor = async (FavorText, key) => {
   try {
     const isComplete = false;
     const provider = new ethers.getDefaultProvider(providerUrl);
-    const wallet = ethers.Wallet(key);
+    const wallet = new ethers.Wallet(key);
     const signer = wallet.connect(provider);
     const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
     await FavorContract.estimateGas.addFavor(FavorText, isComplete)
-    .then((hex) => {
-      console.log('gas estimate to post a favor is', parseInt(hex.toHexString(), 16));
-    });
-   
-    let postFavors = await FavorContract.addFavor(FavorText, isComplete, { gasLimit: 30000 });
-    return postFavors;
+      .then(async (hex) => {
+        let gasLimit = parseInt(hex.toHexString(), 16)
+        console.log('gas estimate to post a favor is', gasLimit);
+        if (gasLimit > 0) {
+          let postFavors = FavorContract.addFavor(FavorText, isComplete, { gasLimit });
+          return postFavors;
+        } else {
+          let postFavors = FavorContract.addFavor(FavorText, isComplete, { gasLimit: 30000 });
+          return postFavors;
+        }
+      });
   } catch (error) {
     console.log(error)
   }
