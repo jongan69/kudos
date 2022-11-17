@@ -1,15 +1,11 @@
 import React from "react";
-import {  View } from "react-native";
 import { Card } from "react-native-paper";
 import { Text } from '../components/Themed';
-import AcceptButton from "./AcceptButton";
 
-const FavorCard = (item) => {
+const FavorCard = (item, navigation) => {
   console.log('datas', item.item[3])
   return (
-    <View style={{ flexDirection: 'row', padding: 10 }}>
       <Card style={{ width: '80%' }}>
-
         <Text
           style={{
             fontSize: 15,
@@ -23,11 +19,9 @@ const FavorCard = (item) => {
             fontSize: 10,
             padding: 2,
           }}>
-           - {item.item[3].toString()}
+          - {item.item[3].toString()}
         </Text>
       </Card>
-      <AcceptButton/>
-    </View>
   )
 }
 

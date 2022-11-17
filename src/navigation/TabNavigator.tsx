@@ -49,7 +49,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Home2"
         component={HomeStack}
-        options={({route}) => ({
+        options={({ route }) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
             backgroundColor: colors.border,
@@ -85,12 +85,12 @@ const TabNavigator = () => {
 
 const getTabBarVisibility = (route: Partial<Route<string, object | undefined>>) => {
   // console.log(route);
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
   // console.log(routeName);
 
-  if( routeName == 'News' ) {
-    return 'none';
-  }
+  // if( routeName == 'News' ) {
+  //   return 'none';
+  // }
   return 'flex';
 };
 

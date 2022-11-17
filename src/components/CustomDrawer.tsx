@@ -127,7 +127,7 @@ const CustomDrawer = (
                 marginRight: 5,
               }}
             >
-              {balance}
+              {balance > 0? `${+Number(balance).toFixed(5)}` : 0}
             </Text>
             <FontAwesome5 name="coins" size={14} color="#FFF" />
           </View>
