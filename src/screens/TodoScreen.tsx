@@ -11,8 +11,8 @@ import {
   View,
 } from "react-native";
 import CustomSwitch from "../components/CustomSwitch";
-
 import { styles } from "../constants/style";
+
 const TodoScreen = ({ navigation }) => {
   const [favorsTab, setfavorsTab] = useState(1);
 
@@ -42,6 +42,7 @@ const TodoScreen = ({ navigation }) => {
               onSelectSwitch={onSelectSwitch}
             />
           </View>
+
           {favorsTab == 1 ? (
             <View
               style={{
