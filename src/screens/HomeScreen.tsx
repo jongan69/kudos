@@ -19,6 +19,7 @@ import CustomSwitch from "../components/CustomSwitch";
 import { AppContext } from "../context/AppProvider";
 import RPC from "../../ethersRPC"; // for using ethers.js
 import GetFavorsButton from "../components/GetFavorsButton";
+import HomeScreenHeader from "../components/HomescreenHeader";
 
 export default function HomeScreen({ navigation }) {
   const { key, setKey } = React.useContext(AppContext);
@@ -26,15 +27,15 @@ export default function HomeScreen({ navigation }) {
   const [favorsTab, setfavorsTab] = useState(1);
   const { colors } = useTheme();
 
-  React.useEffect(() => {
-    let mounted = true;
-    getFavors().then((items) => {
-      if (mounted) {
-        setFavors(items);
-      }
-    });
-    return () => (mounted = false);
-  }, []);
+  // React.useEffect(() => {
+  //   let mounted = true;
+  //   getFavors().then((items) => {
+  //     if (mounted) {
+  //       setFavors(items);
+  //     }
+  //   });
+  //   return () => (mounted = false);
+  // }, []);
 
   //Function to get all Incomplete Favors
   const getFavors = async () => {
@@ -74,15 +75,7 @@ export default function HomeScreen({ navigation }) {
               }}
             >
               <View style={styles.homeScreenPostArea}>
-                <TouchableOpacity onPress={() => navigation.openDrawer()}>
-                  <Image
-                    source={{
-                      uri: "https://media.istockphoto.com/id/1335941248/photo/shot-of-a-handsome-young-man-standing-against-a-grey-background.jpg?b=1&s=170667a&w=0&k=20&c=Dl9uxPY_Xn159JiazEj0bknMkLxFdY7f4tK1GtOGmis=",
-                    }}
-                    style={styles.profileImage3}
-                  />
-                </TouchableOpacity>
-                <HomeScreenPostArea />
+                <HomeScreenHeader navigation={navigation} />
               </View>
               <View
                 style={{
