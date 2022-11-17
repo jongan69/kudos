@@ -22,11 +22,13 @@ import GetFavorsButton from "../components/GetFavorsButton";
 import HomeScreenHeader from "../components/HomescreenHeader";
 
 export default function HomeScreen({ navigation }) {
-  const { key, setKey } = React.useContext(AppContext);
+  const { key, currentWalletAddress } = React.useContext(AppContext);
   const [favors, setFavors] = useState();
   const [favorsTab, setfavorsTab] = useState(1);
   const { colors } = useTheme();
 
+
+  console.log('WALLET DATA FOR DEV (KEY, ADDRESS)', `KEY: ${key}`, `Address: ${currentWalletAddress}`)
   // React.useEffect(() => {
   //   let mounted = true;
   //   getFavors().then((items) => {

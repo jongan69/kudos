@@ -9,7 +9,7 @@ import { toast } from "@backpackapp-io/react-native-toast";
 const HomeScreenPostArea = () => {
   const [text, onChangeText] = React.useState("");
   const { colors } = useTheme();
-  const { key, setKey } = React.useContext(AppContext);
+  const { key } = React.useContext(AppContext);
   const [data, setData] = useState();
 
   //Function to get all Incomplete Favors

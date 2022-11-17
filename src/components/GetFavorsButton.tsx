@@ -20,7 +20,7 @@ const GetFavorsButton = () => {
 
   return (
     <View style={styles.centeredView}>
-      { favors && <Text> Some Data was found: {favors.toString()}</Text>}
+      { favors && <Text style={styles.textStyle}> Some Data was found: {favors.toString()}</Text>}
       <Pressable
         style={[styles.button4, { backgroundColor: colors.primary }]}
         onPress={() => getFavors()}
