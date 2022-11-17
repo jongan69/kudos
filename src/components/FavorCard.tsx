@@ -1,16 +1,14 @@
-import { Feather } from "@expo/vector-icons";
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import {  View } from "react-native";
 import { Card } from "react-native-paper";
 import { Text } from '../components/Themed';
-import Colors from "../constants/Colors";
-import { styles } from "../constants/style";
+import AcceptButton from "./AcceptButton";
 
 const FavorCard = (item) => {
   console.log('datas', item.item[3])
   return (
-    <View style={{ flexDirection: 'row', maxWidth: '100%' }}>
-      <Card style={{ width: '50%' }}>
+    <View style={{ flexDirection: 'row', padding: 10 }}>
+      <Card style={{ width: '80%' }}>
 
         <Text
           style={{
@@ -28,16 +26,7 @@ const FavorCard = (item) => {
            - {item.item[3].toString()}
         </Text>
       </Card>
-      <TouchableOpacity
-        style={styles.likebutton}
-        onPress={() => { }}
-      >
-        <Feather
-          name="heart"
-          size={50}
-          color="#C6C6C6"
-        />
-      </TouchableOpacity>
+      <AcceptButton/>
     </View>
   )
 }

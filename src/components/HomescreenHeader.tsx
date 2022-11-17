@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, Image } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { AppContext } from "../context/AppProvider";
@@ -8,14 +8,6 @@ import HomeScreenPostArea from "./HomeScreenPostArea";
 
 const HomeScreenHeader = ({ navigation }) => {
   const { key, setKey } = React.useContext(AppContext);
-  const { colors } = useTheme();
-  const [favors, setFavors] = useState();
-
-  //Function to get all Incomplete Favors
-  const getFavors = async () => {
-    const favs = await RPC.getAllIncompleteFavors(key);
-    setFavors(favs);
-  };
 
   return (
     <>

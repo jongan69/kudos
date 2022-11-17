@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, Pressable, View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import RPC from '../../ethersRPC'; // for using ethers.js
@@ -7,7 +7,7 @@ import { styles } from "../constants/style";
 import { toast } from "@backpackapp-io/react-native-toast";
 
 const GetFavorsButton = () => {
-  const { key, favors, setFavors } = React.useContext(AppContext);
+  const { key, setFavors } = React.useContext(AppContext);
   const { colors } = useTheme();
 
   //Function to get all Incomplete Favors

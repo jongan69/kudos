@@ -5,7 +5,6 @@ import { useTheme } from "@react-navigation/native";
 import { AppContext } from "../context/AppProvider";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { toast } from "@backpackapp-io/react-native-toast";
-import GetFavorsButton from "./GetFavorsButton";
 
 const HomeScreenPostArea = () => {
   const [text, onChangeText] = React.useState("");

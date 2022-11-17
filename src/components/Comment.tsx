@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { SafeAreaView, TextInput, Image, View, Text } from "react-native";
+import { SafeAreaView, TextInput, View } from "react-native";
 import { styles } from "../constants/style";
 import { useTheme } from "@react-navigation/native";
 
