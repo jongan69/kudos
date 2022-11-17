@@ -71,20 +71,19 @@ const Payment = ({ navigation }) => {
                 fontSize: 19,
               }}
             >
-              Recent
+              Recent Payments
             </Text>
-          </View>
+            <View
+              style={{
+                backgroundColor: "rgb(199, 199, 204)",
+                borderColor: "black",
+                padding: 10,
+                margin: 3,
+                borderRadius: 16,
+                width: 340,
+              }}
+            >
 
-          <View style={{ marginVertical: 0 }}>
-            <CustomSwitch
-              selectionMode={1}
-              option1="Balances"
-              option2="Payments"
-              onSelectSwitch={onSelectSwitch}
-            />
-          </View>
-          {favorsTab == 1 ? (
-            <View>
               <Text
                 style={{
                   margin: 4,
@@ -92,59 +91,61 @@ const Payment = ({ navigation }) => {
                   fontSize: 19,
                 }}
               >
-                Balances
+                No Recent Payments
               </Text>
-              <View
+            </View>
+          </View>
+
+          {/* <View style={{ marginVertical: 0 }}>
+            <CustomSwitch
+              selectionMode={1}
+              option1="Balances"
+              option2="Payments"
+              onSelectSwitch={onSelectSwitch}
+            />
+          </View> */}
+
+          <View>
+            <Text
+              style={{
+                margin: 4,
+                width: 350,
+                fontSize: 19,
+              }}
+            >
+              Balances
+            </Text>
+            <View
+              style={{
+                backgroundColor: "rgb(199, 199, 204)",
+                borderColor: "black",
+                padding: 10,
+                margin: 3,
+                borderRadius: 16,
+                width: 340,
+              }}
+            >
+              <Text
                 style={{
-                  backgroundColor: "rgb(199, 199, 204)",
-                  borderColor: "black",
-                  padding: 10,
-                  margin: 3,
-                  borderRadius: 16,
-                  width: 340,
+                  margin: 4,
+                  width: 350,
+                  fontSize: 19,
                 }}
               >
-                <Text
-                  style={{
-                    margin: 4,
-                    width: 350,
-                    fontSize: 19,
-                  }}
-                >
-                  Cash:
-                </Text>
-                <Text
-                  style={{
-                    margin: 4,
-                    width: 350,
-                    fontSize: 19,
-                  }}
-                >
-                  Sats:
-                </Text>
-                <Text
-                  style={{
-                    margin: 4,
-                    width: 350,
-                    fontSize: 19,
-                  }}
-                >
-                  Eth:
-                </Text>
-                <Text
-                  style={{
-                    margin: 4,
-                    width: 350,
-                    fontSize: 19,
-                  }}
-                >
-                  Mls:
-                </Text>
-              </View>
+                Kudos Token:
+              </Text>
+
+              <Text
+                style={{
+                  margin: 4,
+                  width: 350,
+                  fontSize: 19,
+                }}
+              >
+                Eth:
+              </Text>
             </View>
-          ) : (
-            <></>
-          )}
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -5,7 +5,8 @@ import {
   SafeAreaView,
   ScrollView,
   RefreshControl,
-  FlatList
+  FlatList,
+  TextInput
 } from "react-native";
 import { styles } from "../constants/style";
 import { useTheme } from "@react-navigation/native";
@@ -15,11 +16,15 @@ import RPC from "../../ethersRPC"; // for using ethers.js
 import HomeScreenHeader from "../components/HomescreenHeader";
 import { toast } from "@backpackapp-io/react-native-toast";
 import FavorCard from "../components/FavorCard";
+import { AcceptModal } from "../components/AcceptModal";
+import { Feather } from "@expo/vector-icons";
 
 export default function HomeScreen({ navigation }) {
   const { key, currentWalletAddress, favors, setFavors } = React.useContext(AppContext);
   const [favorsTab, setfavorsTab] = useState(1);
   const [refreshing, setRefreshing] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+
   const { colors } = useTheme();
 
 
@@ -70,65 +75,62 @@ export default function HomeScreen({ navigation }) {
         ? <FlatList
           ListHeaderComponent={
             <View >
-              <ScrollView
-                refreshControl={
-                  <RefreshControl refreshing={refreshing} onRefresh={getFavors} />
-                }
+              <AcceptModal props={{ modalVisible, setModalVisible }} />
+
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
                 <View
                   style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
+                    borderWidth: 1,
+                    flexDirection: "row",
+                    borderColor: "#C6C6C6",
+                    borderRadius: 8,
+                    paddingHorizontal: 10,
+                    paddingVertical: 8,
+                    margin: 16,
+                    width: 350,
                   }}
                 >
-
-                  {/* <View
-                style={{
-                  borderWidth: 1,
-                  flexDirection: "row",
-                  borderColor: "#C6C6C6",
-                  borderRadius: 8,
-                  paddingHorizontal: 10,
-                  paddingVertical: 8,
-                  margin: 16,
-                  width: 350,
-                }} 
-              >
-                <Feather
-                  name="search"
-                  width={100}
-                  size={20}
-                  color="#C6C6C6"
-                  style={{ marginRight: 5 }}
-                />
-                <TextInput
-                  style={{ color: colors.text }}
-                  placeholder="Search"
-                />
-              </View> */}
-
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <HomeScreenHeader navigation={navigation} />
-                  </View>
-                  <View style={{ width: '100%',  alignItems: 'center' }}>
-                    <CustomSwitch
-                      selectionMode={1}
-                      option1="Favors"
-                      option2="Accepted"
-                      onSelectSwitch={onSelectSwitch}
-                    />
-                  </View>
+                  <Feather
+                    name="search"
+                    width={100}
+                    size={20}
+                    color="#C6C6C6"
+                    style={{ marginRight: 5 }}
+                  />
+                  <TextInput
+                    style={{ color: colors.text }}
+                    placeholder="Search"
+                  />
                 </View>
-              </ScrollView>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <HomeScreenHeader navigation={navigation} />
+                </View>
+                <View style={{ width: '100%', alignItems: 'center' }}>
+                  <CustomSwitch
+                    selectionMode={1}
+                    option1="Favors"
+                    option2="Accepted"
+                    onSelectSwitch={onSelectSwitch}
+                  />
+                </View>
+              </View>
             </View>
           }
-          stickyHeaderHiddenOnScroll={true}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={getFavors} />
+          }
+          // stickyHeaderHiddenOnScroll={false}
           data={favors}
           keyExtractor={(item, index) => index?.toString()}
           ItemSeparatorComponent={ItemSeparatorView}

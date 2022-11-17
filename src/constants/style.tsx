@@ -60,6 +60,12 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 5,
   },
+  likebutton: {
+    backgroundColor: "#d75555",
+    borderRadius: 8,
+    padding: 5,
+    width: '20%'
+  },
   container2: {
     padding: 10,
     margin: 2,

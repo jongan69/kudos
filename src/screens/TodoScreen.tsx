@@ -14,11 +14,12 @@ import CustomSwitch from "../components/CustomSwitch";
 import { styles } from "../constants/style";
 
 const TodoScreen = ({ navigation }) => {
+  
   const [favorsTab, setfavorsTab] = useState(1);
-
   const onSelectSwitch = (value: React.SetStateAction<number>) => {
     setfavorsTab(value);
   };
+
   return (
     <SafeAreaView>
       <ScrollView style={{ padding: 20 }}>
@@ -33,17 +34,6 @@ const TodoScreen = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ProfileImage />
           </TouchableOpacity>
-          <Text style={styles.h1}>James's Todo List</Text>
-          <View style={{ marginVertical: 0 }}>
-            <CustomSwitch
-              selectionMode={1}
-              option1="Pending"
-              option2="Completed"
-              onSelectSwitch={onSelectSwitch}
-            />
-          </View>
-
-          {favorsTab == 1 ? (
             <View
               style={{
                 flex: 1,
@@ -52,7 +42,7 @@ const TodoScreen = ({ navigation }) => {
                 padding: 1,
               }}
             >
-              <Text style={styles.h1}>Pending Items</Text>
+              <Text style={styles.h1}>Pending Favors</Text>
               {ToDoList.map((item) =>
                 item.isCompleted ? (
                   <ToDoItem
@@ -67,7 +57,6 @@ const TodoScreen = ({ navigation }) => {
                 )
               )}
             </View>
-          ) : (
             <View
               style={{
                 flex: 1,
@@ -91,7 +80,6 @@ const TodoScreen = ({ navigation }) => {
                 )
               )}
             </View>
-          )}
         </View>
       </ScrollView>
     </SafeAreaView>
