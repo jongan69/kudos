@@ -381,11 +381,11 @@
 			]
 		},
 		"contracts/KudosToken.sol": {
-			"keccak256": "0x7906f21a4e4a6e5fd7307d5e086810fb968bcf6f5d7e5874dd51e5c95d30d07e",
+			"keccak256": "0x210333b8b06cb178d93e4195d8cf18d40dab7cc99bbc763142b21b09b6b49126",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8d316a267155f65ba6489582e527c43c80ca5a0e5ba78e95bc6bb138d0fabdc7",
-				"dweb:/ipfs/QmURSQEJBMUGsL1BmuigVyLtPiozdrZvBeFdCAhYBjZnUz"
+				"bzz-raw://592127f6b6741758d249b8c99700c6cb6a273748a43bf4a634704e9e31743832",
+				"dweb:/ipfs/QmVpkcqvKBCo2RcaUFL4z2eZ9oc2CH8Fjccs44Fiv4rDnh"
 			]
 		}
 	},

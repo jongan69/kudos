@@ -60,7 +60,6 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
     // map vrf results to rollers
     mapping(address => uint256) private s_results;
     address acceptedBy;
-    bool alreadyCollected = false;
     
     constructor(uint64 subscriptionId, address token)
         VRFConsumerBaseV2(vrfCoordinator)
@@ -83,6 +82,8 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
         emit AddFavor(msg.sender, favorId);
 
         // When you post your first favor, you should get your bonus
+        // Need to check only run once on first favor
+        // probably need to map address to bool for checking if already 'rolled' 
         firstFavor(msg.sender);
     }
 
@@ -111,6 +112,7 @@ contract FavorsContractV2 is VRFConsumerBaseV2 {
     }
 
     function collectBonus () public returns (bool bonusCollected)  {
+        bool alreadyCollected = false;
         if(!alreadyCollected) {
             require(s_results[msg.sender] != 0, "Dice not rolled");
             require(s_results[msg.sender] != ROLL_IN_PROGRESS, "Roll in progress");

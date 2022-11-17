@@ -15,9 +15,9 @@ built under The Chainlink 2022 Hackathon <https://devpost.com/software/kudos-bzi
 
 Test Net Deploy:
 
-## KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0xBe41Ed28a90835B7eAEc50B19098c7DFe13aad88
+## LATEST KUDOS TOKEN CONTRACT ADDRESS (GOERLI): 0x4178447f6317Cf112B709753b6DA8B2fa6D3c9C8
 
-## FAVORS CONTRACT ADDRESS (GOERLI): 0xAdd83EDAad338D848aE792fB819EF359003601fD
+## LATEST FAVORS CONTRACT ADDRESS (GOERLI): 0x0C208ad773d22a375243A5B0B5018b994F150f9C
 
 [Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/VRF/VRFD20.sol&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
 
