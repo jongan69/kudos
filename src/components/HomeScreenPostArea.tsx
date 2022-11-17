@@ -15,8 +15,11 @@ const HomeScreenPostArea = () => {
   //Function to get all Incomplete Favors
   const postFavor = async (FavorText: string) => {
     try {
-      toast.loading("Sending Favor to Blockchain...");
+      let load = toast.loading("Sending Favor to Blockchain...");
       const post = await RPC.postFavor(FavorText, key);
+      setTimeout(() => {
+        toast.dismiss(load);
+      }, 3000);
       setData(post);
       onChangeText('');
       toast.error(`Successfully Post Favor!: ${data}`);

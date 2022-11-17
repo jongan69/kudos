@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity } from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, Image } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { AppContext } from "../context/AppProvider";

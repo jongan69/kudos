@@ -3,6 +3,7 @@ import { ethers } from 'ethers';
 import { Buffer } from 'buffer';
 import { FAVOR_CONTRACT } from "@env"
 import * as FavorABI from './artifacts/FavorsContractV2_metadata.json'
+import { toast } from "@backpackapp-io/react-native-toast";
 
 // To do for contract deploy
 // 1. Compile + Deploy Token Contract
@@ -79,11 +80,17 @@ const signMessage = async key => {
 
 const postFavor = async (FavorText, key) => {
   try {
+    const isComplete = false;
     const provider = new ethers.getDefaultProvider(providerUrl);
     const wallet = new ethers.Wallet(key);
     const signer = wallet.connect(provider);
     const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
-    let postFavors = await FavorContract.postFavor(FavorText);
+    await FavorContract.estimateGas.addFavor(FavorText, isComplete)
+    .then((hex) => {
+      console.log('gas estimate to post a favor is', parseInt(hex.toHexString(), 16));
+    });
+   
+    let postFavors = await FavorContract.addFavor(FavorText, isComplete, { gasLimit: 30000 });
     return postFavors;
   } catch (error) {
     console.log(error)
