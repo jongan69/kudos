@@ -18,7 +18,7 @@ const postFavor = async (FavorText, key) => {
   try {
     const isComplete = false;
     const provider = new ethers.getDefaultProvider(providerUrl);
-    const wallet = new ethers.Wallet(key);
+    const wallet = ethers.Wallet(key);
     const signer = wallet.connect(provider);
     const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
     await FavorContract.estimateGas.addFavor(FavorText, isComplete)

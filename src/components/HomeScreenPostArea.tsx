@@ -20,9 +20,12 @@ const HomeScreenPostArea = () => {
       setTimeout(() => {
         toast.dismiss(load);
       }, 3000);
-      setData(post);
-      onChangeText('');
-      toast.error(`Successfully Post Favor!: ${data}`);
+      
+      if(post?.length > 0) {
+        setData(post);
+        onChangeText('');
+        toast.error(`Successfully Post Favor!: ${post}`);
+      }
     } catch (e) {
       toast.error(`Failed to Post Favor: ${e}`);
     }
