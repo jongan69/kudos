@@ -143,6 +143,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderRadius: 8,
+    backgroundColor: 'rgb(199, 199, 204)'
   },
   modalView: {
     justifyContent: "center",

@@ -35,7 +35,7 @@ global.Buffer = global.Buffer || Buffer;
 const scheme = Constants?.manifest?.slug;
 const resolvedRedirectUrl =
   Constants.appOwnership == AppOwnership.Expo ||
-  Constants.appOwnership == AppOwnership.Guest
+    Constants.appOwnership == AppOwnership.Guest
     ? Linking.createURL("web3auth", {})
     : Linking.createURL("web3auth", { scheme: scheme });
 
@@ -98,25 +98,26 @@ const LoginScreen = () => {
         })
         .then((info: any) => {
           console.log("DATA FROM WEB3 AUTH:", info);
-          const ethersProvider =
-            ethers.getDefaultProvider(WEB3AUTH_PROVIDERURL);
+          const ethersProvider = ethers.getDefaultProvider(WEB3AUTH_PROVIDERURL);
           setUserInfo(info);
           setKey(info.privKey);
           const wallet = new ethers.Wallet(info.privKey, ethersProvider);
-          // Create Toast for private key generating wallet address
-          if (wallet) toast.success(`Created wallet!: ${wallet.address}`);
 
-          console.log("Logged In", address);
-          toast.success(`Logged In: ${address}`);
-          setAddress(wallet.address);
-          setEmail(info.userInfo.email);
-          setCurrentWalletAddress(wallet.address);
-          if (wallet.address) {
+          // Create Toast for private key generating wallet address
+          if (wallet) toast.success(`Created wallet!: ${wallet?.address}`);
+
+          setAddress(wallet?.address);
+          setEmail(info?.userInfo?.email);
+          setCurrentWalletAddress(wallet?.address);
+          console.log("Logged In", currentWalletAddress);
+          toast.success(`Logged In: ${currentWalletAddress}`);
+
+          if (currentWalletAddress.length > 0 && email.length > 0) {
             try {
               nhost.auth
                 .signIn({
-                  email: info.userInfo.email,
-                  password: wallet.address,
+                  email: email,
+                  password: currentWalletAddress,
                 })
                 .then((result: any) => console.log(result))
                 .then(() =>
@@ -129,14 +130,15 @@ const LoginScreen = () => {
             }
           }
         });
+      return info;
     } catch (e: any) {
       toast.error(e.toString());
       console.log(e);
     }
   };
 
-  // Use Default Passwordless email signin
-  const DefaultLogin = async () => {
+  // Use Default Passwordless email sign in
+  const DefaultLogin = async (email: string) => {
     try {
       console.log("Address was: ", email);
       if (email.length < 80 && emailRegex.test(email)) {
@@ -186,10 +188,10 @@ const LoginScreen = () => {
             setEmail(email);
             setCurrentWalletAddress(wallet.address);
 
-            if (wallet.address) {
+            if (currentWalletAddress?.length > 0 && email?.length > 0) {
               try {
                 nhost.auth
-                  .signUp({ email, password: wallet.address })
+                  .signUp({ email, password: currentWalletAddress })
                   .then(() =>
                     toast.success(`Account Created Successfully!`, {
                       width: 300,
@@ -200,6 +202,7 @@ const LoginScreen = () => {
               }
             }
           });
+        return info;
       } else {
         toast.error("Invalid Email!");
       }
@@ -239,18 +242,14 @@ const LoginScreen = () => {
           </Text>
           <InputField
             label={"Email ID"}
-            icon={
-              <MaterialIcons
-                name="alternate-email"
-                size={20}
-                color="#666"
-                style={{ marginRight: 5 }}
-              />
-            }
+            icon={<MaterialIcons
+              name="alternate-email"
+              size={20}
+              color="#666"
+              style={{ marginRight: 5 }} />}
             keyboardType="email-address"
             value={email}
-            onChangeText={(value: string) => setEmail(value)}
-          />
+            onChangeText={(value: string) => setEmail(value)} inputType={undefined} fieldButtonLabel={undefined} fieldButtonFunction={undefined} />
 
           {/* <InputField
           label={error ? 'Error Please Try again' : 'Wallet Address'}
@@ -267,7 +266,7 @@ const LoginScreen = () => {
           <CustomButton
             label={"Login"}
             onPress={() => {
-              DefaultLogin();
+              DefaultLogin(email);
             }}
           />
           <Text

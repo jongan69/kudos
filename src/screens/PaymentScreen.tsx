@@ -20,10 +20,6 @@ const Payment = ({ navigation }) => {
 
   const onSelectSwitch = (value) => {
     setMoneyTab(value);
-
-    if (favorsTab == 2) {
-      navigation.navigate("Favors");
-    }
   };
   return (
     <SafeAreaView>

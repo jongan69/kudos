@@ -79,7 +79,7 @@ export default function HomeScreen({ navigation }) {
               <View style={styles.homeScreenPostArea}>
                 <HomeScreenHeader navigation={navigation} />
               </View>
-              <View
+              {/* <View
                 style={{
                   borderWidth: 1,
                   flexDirection: "row",
@@ -102,7 +102,7 @@ export default function HomeScreen({ navigation }) {
                   style={{ color: colors.text }}
                   placeholder="Search"
                 />
-              </View>
+              </View> */}
             </View>
           </View>
           <View style={{ marginVertical: 0 }}>

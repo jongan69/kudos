@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { Text, Pressable, View } from "react-native";
 import { useTheme } from "@react-navigation/native";
-import InputField from "./InputField";
-import { Ionicons } from "@expo/vector-icons";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { AppContext } from "../context/AppProvider";
 import { styles } from "../constants/style";
@@ -20,7 +18,7 @@ const GetFavorsButton = () => {
 
   return (
     <View style={styles.centeredView}>
-      { favors && <Text style={styles.textStyle}> Some Data was found: {favors.toString()}</Text>}
+      {favors && <Text style={styles.textStyle}> Some Data was found: {favors.toString()}</Text>}
       <Pressable
         style={[styles.button4, { backgroundColor: colors.primary }]}
         onPress={() => getFavors()}

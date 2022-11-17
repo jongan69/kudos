@@ -18,9 +18,6 @@ const TodoScreen = ({ navigation }) => {
 
   const onSelectSwitch = (value: React.SetStateAction<number>) => {
     setfavorsTab(value);
-    if (favorsTab == 2) {
-      navigation.navigate("Favors");
-    }
   };
   return (
     <SafeAreaView>

@@ -14,6 +14,80 @@ import { toast } from "@backpackapp-io/react-native-toast";
 global.Buffer = global.Buffer || Buffer;
 const providerUrl = 'https://rpc.ankr.com/eth_goerli'; // Or your desired provider url
 
+const postFavor = async (FavorText, key) => {
+  try {
+    const isComplete = false;
+    const provider = new ethers.getDefaultProvider(providerUrl);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
+    await FavorContract.estimateGas.addFavor(FavorText, isComplete)
+    .then((hex) => {
+      console.log('gas estimate to post a favor is', parseInt(hex.toHexString(), 16));
+    });
+   
+    let postFavors = await FavorContract.addFavor(FavorText, isComplete, { gasLimit: 30000 });
+    return postFavors;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const getMyFavors = async (key) => {
+  try {
+    const provider = new ethers.getDefaultProvider(providerUrl);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
+    let myFavors = await FavorContract.getMyFavors();
+    return myFavors;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const getAllIncompleteFavors = async (key) => {
+  try {
+    const provider = new ethers.getDefaultProvider(providerUrl);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
+    let allFavors = await FavorContract.getAllIncompleteFavors();
+    console.log('allFavors', allFavors)
+    return allFavors;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const acceptFavor = async () => {
+  try {
+    const provider = new ethers.getDefaultProvider(providerUrl);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
+    let accept = await FavorContract.acceptFavor();
+    return accept;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const completeFavor = async () => {
+  try {
+    const provider = new ethers.getDefaultProvider(providerUrl);
+    const wallet = new ethers.Wallet(key);
+    const signer = wallet.connect(provider);
+    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
+    let complete = await FavorContract.completeFavor();
+    return complete;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// Other Useful RPC Functions 
+
 const getChainId = async () => {
   try {
     const ethersProvider = ethers.getDefaultProvider(providerUrl);
@@ -78,84 +152,15 @@ const signMessage = async key => {
   }
 };
 
-const postFavor = async (FavorText, key) => {
-  try {
-    const isComplete = false;
-    const provider = new ethers.getDefaultProvider(providerUrl);
-    const wallet = new ethers.Wallet(key);
-    const signer = wallet.connect(provider);
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
-    await FavorContract.estimateGas.addFavor(FavorText, isComplete)
-    .then((hex) => {
-      console.log('gas estimate to post a favor is', parseInt(hex.toHexString(), 16));
-    });
-   
-    let postFavors = await FavorContract.addFavor(FavorText, isComplete, { gasLimit: 30000 });
-    return postFavors;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const getMyFavors = async () => {
-  try {
-    const provider = new ethers.getDefaultProvider(providerUrl);
-    const signer = provider.getSigner();
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.abi, signer);
-    let myFavors = await FavorContract.getMyFavors();
-    return myFavors;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const getAllIncompleteFavors = async (key) => {
-  try {
-    const provider = new ethers.getDefaultProvider(providerUrl);
-    const wallet = new ethers.Wallet(key);
-    const signer = wallet.connect(provider);
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.output.abi, signer);
-    let allFavors = await FavorContract.getAllIncompleteFavors();
-    console.log('allFavors', allFavors)
-    return allFavors;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const acceptFavor = async () => {
-  try {
-    const provider = new ethers.getDefaultProvider(providerUrl);
-    const signer = provider.getSigner();
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.abi, signer);
-    let accept = await FavorContract.acceptFavor();
-    return accept;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const completeFavor = async () => {
-  try {
-    const provider = new ethers.getDefaultProvider(providerUrl);
-    const signer = provider.getSigner();
-    const FavorContract = new ethers.Contract(FAVOR_CONTRACT, FavorABI.abi, signer);
-    let complete = await FavorContract.completeFavor();
-    return complete;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 export default {
+  postFavor,
+  getMyFavors,
+  getAllIncompleteFavors,
+  acceptFavor,
+  completeFavor,
   getChainId,
   getAccounts,
   getBalance,
   sendTransaction,
   signMessage,
-  postFavor,
-  getMyFavors,
-  getAllIncompleteFavors,
-  acceptFavor,
-  completeFavor
 };
