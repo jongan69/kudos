@@ -4,6 +4,7 @@ import { styles } from "../constants/style";
 import { useTheme } from "@react-navigation/native";
 import { AppContext } from "../context/AppProvider";
 import RPC from '../../ethersRPC'; // for using ethers.js
+import { toast } from "@backpackapp-io/react-native-toast";
 
 const HomeScreenPostArea = () => {
   const [text, onChangeText] = React.useState("");
@@ -13,8 +14,16 @@ const HomeScreenPostArea = () => {
 
   //Function to get all Incomplete Favors
   const postFavor = async (FavorText: string) => {
-    const post = await RPC.postFavor(FavorText, key);
-    setData(post);
+    try {
+      toast.loading("Sending Favor to Blockchain...");
+      const post = await RPC.postFavor(FavorText, key);
+      setData(post);
+      onChangeText('');
+      toast.error(`Successfully Post Favor!: ${data}`);
+    } catch (e) {
+      toast.error(`Failed to Post Favor: ${e}`);
+    }
+  
   };
 
   return (
