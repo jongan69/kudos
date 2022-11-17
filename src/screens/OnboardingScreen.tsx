@@ -19,7 +19,7 @@ const OnboardingScreen = ({ navigation }) => {
             fontFamily: 'Inter-Bold',
             fontWeight: 'bold',
             fontSize: 30,
-            color: colors.textLight,
+            color: colors.text,
           }}>
           Welcome
         </Text>

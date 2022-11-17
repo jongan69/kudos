@@ -139,7 +139,7 @@ const Offer = (props) => {
             >
               Are you sure you want to volunteer? If you withdraw your
               participation, your reliability rating will be negatively
-              affectded.
+              affected.
             </Text>
             <View style={styles.sideBySideCenter}>
               <Pressable

@@ -118,7 +118,8 @@ const getBalance = async key => {
     const ethersProvider = ethers.getDefaultProvider(providerUrl);
     const wallet = new ethers.Wallet(key, ethersProvider);
     const balance = await wallet.getBalance();
-    return balance;
+    const balanceInEth = ethers.utils.formatEther(balance);
+    return balanceInEth;
   } catch (error) {
     return error;
   }

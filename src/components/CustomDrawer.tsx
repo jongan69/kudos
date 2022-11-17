@@ -25,6 +25,7 @@ import {
   DrawerNavigationHelpers,
   DrawerDescriptorMap,
 } from "@react-navigation/drawer/lib/typescript/src/types";
+import RPC from '../../ethersRPC'; // for using ethers.js
 
 const CustomDrawer = (
   props:
@@ -43,9 +44,11 @@ const CustomDrawer = (
     currentWalletAddress,
     setCurrentWalletAddress,
     setKey,
+    key,
     setEmail,
     setUserInfo,
   } = React.useContext(AppContext);
+  const [balance, setBalance] = React.useState(0)
 
   const logout = () => {
     console.log("Logging out of ", currentWalletAddress);
@@ -57,6 +60,24 @@ const CustomDrawer = (
       width: 300,
     });
   };
+
+  const getBalance = async (key: string) => {
+    const id = toast.loading("Getting Balance...");
+    await RPC.getBalance(key)
+    .then((bal) => {
+      console.log(bal)
+      setBalance(bal)
+      // setBalance(parseInt(bal.toHexString(), 16))
+      setTimeout(() => {
+        toast.dismiss(id);
+      }, 3000);
+    })
+   
+  }
+
+  React.useEffect(() => {
+    getBalance(key);
+  }, []);
 
   return (
     <View style={{ flex: 1 }}>
@@ -106,7 +127,7 @@ const CustomDrawer = (
                 marginRight: 5,
               }}
             >
-              $ Money
+              {balance}
             </Text>
             <FontAwesome5 name="coins" size={14} color="#FFF" />
           </View>

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as WebBrowser from "expo-web-browser";
+
 // Theme
 import { useTheme } from "@react-navigation/native";
 import Constants, { AppOwnership } from "expo-constants";
 
 // Components
 import { toast } from "@backpackapp-io/react-native-toast";
-
 import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
 

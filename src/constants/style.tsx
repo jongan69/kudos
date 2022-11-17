@@ -82,6 +82,7 @@ export const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 8,
+    margin: 2
   },
   profileImage4: {
     width: 50,
@@ -125,6 +126,8 @@ export const styles = StyleSheet.create({
     height: 30,
     backgroundColor: "#d75555",
     borderRadius: 8,
+    margin: 5,
+    alignSelf: 'flex-start'
   },
   buttonText2: {
     textAlign: "center",

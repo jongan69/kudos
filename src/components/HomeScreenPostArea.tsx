@@ -5,6 +5,7 @@ import { useTheme } from "@react-navigation/native";
 import { AppContext } from "../context/AppProvider";
 import RPC from '../../ethersRPC'; // for using ethers.js
 import { toast } from "@backpackapp-io/react-native-toast";
+import GetFavorsButton from "./GetFavorsButton";
 
 const HomeScreenPostArea = () => {
   const [text, onChangeText] = React.useState("");
@@ -34,7 +35,6 @@ const HomeScreenPostArea = () => {
 
   return (
     <SafeAreaView>
-      <View>
         <View style={{ flexDirection: "column" }}>
           <TextInput
             style={[
@@ -44,14 +44,14 @@ const HomeScreenPostArea = () => {
             onChangeText={onChangeText}
             value={text}
             multiline
-            placeholder="Post an offer or request
-          a favor."
+            placeholder="ie need help finding my dad"
+            placeholderTextColor={colors.text}
           />
+           {/* <GetFavorsButton /> */}
           <Pressable style={styles.button3} onPress={() => postFavor(text)}>
-            <Text style={styles.buttonText2}>Post</Text>
+            <Text style={styles.buttonText2}>Ask for a favor</Text>
           </Pressable>
         </View>
-      </View>
     </SafeAreaView>
   );
 };
