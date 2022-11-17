@@ -6,7 +6,7 @@ import {
   ScrollView,
   RefreshControl,
   FlatList,
-  TextInput
+  TextInput,
 } from "react-native";
 import { styles } from "../constants/style";
 import { useTheme } from "@react-navigation/native";
@@ -21,15 +21,19 @@ import { Feather } from "@expo/vector-icons";
 import AcceptButton from "../components/AcceptButton";
 
 export default function HomeScreen({ navigation }) {
-  const { key, currentWalletAddress, favors, setFavors } = React.useContext(AppContext);
+  const { key, currentWalletAddress, favors, setFavors } =
+    React.useContext(AppContext);
   const [favorsTab, setfavorsTab] = useState(1);
   const [refreshing, setRefreshing] = useState(true);
   const [modalVisible, setModalVisible] = React.useState(false);
 
   const { colors } = useTheme();
 
-
-  console.log('WALLET DATA FOR DEV (KEY, ADDRESS)', `KEY: ${key}`, `Address: ${currentWalletAddress}`)
+  console.log(
+    "WALLET DATA FOR DEV (KEY, ADDRESS)",
+    `KEY: ${key}`,
+    `Address: ${currentWalletAddress}`
+  );
 
   //Function to get all Incomplete Favors
   const getFavors = async () => {
@@ -59,8 +63,8 @@ export default function HomeScreen({ navigation }) {
       <View
         style={{
           height: 1,
-          width: '100%',
-          backgroundColor: '#C8C8C8',
+          width: "100%",
+          backgroundColor: "#C8C8C8",
         }}
       />
     );
@@ -68,26 +72,22 @@ export default function HomeScreen({ navigation }) {
 
   const ListItem = ({ item }) => {
     return (
-      <View style={{ flexDirection: 'row', padding: 10 }}>
+      <View style={{ flexDirection: "row", padding: 10 }}>
         <FavorCard item={item} />
         <AcceptButton item={item} navigation={navigation} />
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <SafeAreaView>
       <AcceptModal props={{ modalVisible, setModalVisible }} />
-      {favors?.length > 0 && favorsTab == 1
-        ? <FlatList
+      {favors?.length > 0 && favorsTab == 1 ? (
+        <FlatList
           ListHeaderComponent={
-            <View >
+            <View>
               <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+                style={{ marginTop: 40, width: "100%", alignItems: "center" }}
               >
                 <View
                   style={{
@@ -121,7 +121,7 @@ export default function HomeScreen({ navigation }) {
                 >
                   <HomeScreenHeader navigation={navigation} />
                 </View>
-                <View style={{ width: '100%', alignItems: 'center' }}>
+                <View style={{ width: "100%", alignItems: "center" }}>
                   <CustomSwitch
                     selectionMode={1}
                     option1="Favors"
@@ -140,23 +140,22 @@ export default function HomeScreen({ navigation }) {
           keyExtractor={(item, index) => index?.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ListItem}
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
         />
-        : null
-      }
+      ) : null}
 
-      {favorsTab == 2 &&
-        <View style={{ width: '100%', alignItems: 'center' }}>
+      {favorsTab == 2 && (
+        <View style={{ marginTop: 60, width: "100%", alignItems: "center" }}>
           <CustomSwitch
             selectionMode={2}
             option1="Favors"
             option2="Accepted"
             onSelectSwitch={onSelectSwitch}
           />
-          {favors?.length > 0 &&
+          {favors?.length > 0 && (
             <FlatList
               ListHeaderComponent={
-                <View >
+                <View>
                   <View
                     style={{
                       flex: 1,
@@ -188,7 +187,6 @@ export default function HomeScreen({ navigation }) {
                         placeholder="Search"
                       />
                     </View>
-
                   </View>
                 </View>
               }
@@ -200,10 +198,11 @@ export default function HomeScreen({ navigation }) {
               keyExtractor={(item, index) => index?.toString()}
               ItemSeparatorComponent={ItemSeparatorView}
               renderItem={ListItem}
-              style={{ width: '100%' }}
+              style={{ width: "100%" }}
             />
-          }
-        </View>}
+          )}
+        </View>
+      )}
     </SafeAreaView>
   );
 }
