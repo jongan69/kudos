@@ -138,7 +138,6 @@ export default function HomeScreen({ navigation }) {
           // stickyHeaderHiddenOnScroll={false}
           data={favors}
           keyExtractor={(item, index) => index?.toString()}
-          ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ListItem}
           style={{ width: "100%" }}
         />
@@ -196,7 +195,6 @@ export default function HomeScreen({ navigation }) {
               // stickyHeaderHiddenOnScroll={false}
               data={favors}
               keyExtractor={(item, index) => index?.toString()}
-              ItemSeparatorComponent={ItemSeparatorView}
               renderItem={ListItem}
               style={{ width: "100%" }}
             />
