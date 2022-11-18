@@ -1,7 +1,9 @@
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
-import { domainName } from "./const/yourDetails";
+import { domainName, demo_private_key } from "./const/yourDetails";
+
+
 
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
-  privateKey: process.env.THIRDWEB_AUTH_PRIVATE_KEY || "",
+  privateKey: process.env.THIRDWEB_AUTH_PRIVATE_KEY || demo_private_key,
   domain: domainName,
 });
