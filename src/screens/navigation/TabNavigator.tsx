@@ -3,13 +3,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute, Route } from '@react-navigation/native';
 
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../HomeScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { useTheme } from '@react-navigation/native';
-import PaymentScreen from '../screens/PaymentScreen';
-import TodoScreen from '../screens/TodoScreen';
-import OffersScreen from '../screens/OffersScreen';
+import PaymentScreen from '../PaymentScreen';
+import TodoScreen from '../TodoScreen';
+import OffersScreen from '../OffersScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
