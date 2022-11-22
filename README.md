@@ -79,7 +79,7 @@ To Run Nextjs App:
 - [x] ERC20 Contract
 - [x] Chainlink VRF
 - [x] FavorsV2 Contract
-- [ ] Mobile App Smart Contract Function Integration:
+- [x] Mobile App Smart Contract Function Integration:
         1. Post Button => postFavor(text)
         2. Refresh Favors Button => getAllIncompleteFavors()
         3. Offers Tab => getMyFavors()
