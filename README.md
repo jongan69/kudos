@@ -2,6 +2,8 @@
 
 [![CodeQL](https://github.com/jongan69/kudos/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jongan69/kudos/actions/workflows/codeql-analysis.yml)
 
+
+
 -----
 
 A full stack monorepo with
